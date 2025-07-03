@@ -890,4 +890,933 @@
     <button class="audio-button pause-button" data-text-id="programme-heading,programme-personnalise article,programme-personnalise .check-list,programme-personnalise .urgency-notice" aria-label="Premor predvajanja zvoka" style="display:none">Premor</button>
   </div>
 
-    
+    <article class="audio-text" itemscope itemtype="https://schema.org/Product">
+    <meta itemprop="name" content="Osebni program za hujšanje Victory">
+    <meta itemprop="description" content="Osebni program za izgubo 8 do 12 kg v 2 mesecih s kapsulami Victory in nasveti. Cena: 43,00 €.">
+    <meta itemprop="brand" content="ClairvoyanceMedium.com">
+    <meta itemprop="image" content="https://i.imgur.com/H69KvL6.webp">
+    <meta itemprop="aggregateRating" content='{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"5000"}'>
+    <p><strong>Osebni program za hujšanje Victory</strong> je celovita rešitev za izgubo odvečnih kilogramov, med 3 in 7 kg v 1 mesecu, brez frustracij ali strogih omejitev. Ta program za hitro in zdravo hujšanje je trenutno na voljo za 43,00€ pred prihajajočim zvišanjem cen. Vključuje prilagojen prehranski načrt, ciljane vaje za hujšanje in osebno spremljanje po želji za vašo izgubo teže:</p>
+    <ul class="check-list">
+      <li><strong>Prilagojen prehranski načrt:</strong> Prilagojen vašim potrebam, brez stradanja.</li>
+      <li><strong>Nasveti za vadbo:</strong> Preproste aktivnosti kot hoja ali joga.</li>
+      <li><strong>Spremljanje:</strong> Motivacija za ohranjanje prave poti.</li>
+      <li><strong>Dostop do strokovnjaka za vsa vprašanja o življenju po dieti:</strong> Odgovori na vaša vprašanja v 10 urah.</li>
+    </ul>
+    <p>Ta program je idealen za tiste, ki želijo trajne rezultate brez frustracij, s pravim prehranskim uravnoteženjem. Naši strokovnjaki analizirajo vaš profil (starost, težo, življenjski slog), da ustvarijo edinstven načrt za hujšanje. Z več kot 4000 zadovoljnimi strankami ta program za hujšanje zagotavlja vitko postavo, obnovljeno energijo in okrepitveno duševno moč. Rezultati so vidni že v 2 tednih!</p>
+    <p>Začnite svojo preobrazbo še danes!</p>
+    <p class="urgency-notice">⏰ Ekskluzivna ponudba!</p>
+    <p>*Rezultati se lahko razlikujejo glede na posameznika.</p>
+  </article>
+  <div class="cta-buttons-container">
+    <a href="https://buy.stripe.com/cN2bJ69bmbL9b4Y3dA" target="_blank" rel="noopener nofollow" class="cta-button" data-tracking-label="VictoryProgram" aria-label="Naročite osebni program za hujšanje Victory">
+    <span style="color:#000; text-shadow:0 0 5px rgba(255,255,255,0.8), 0 0 10px rgba(255,255,255,0.6), 0 0 15px rgba(255,255,255,0.4); animation:neon-flicker 1.5s infinite alternate;">Osebni program za hujšanje – 43,00 €</span>
+</a>
+  </div>
+</section>
+
+        <section class="content-container" id="imc" aria-labelledby="imc-heading">
+            <div class="title-container">
+                <h2 id="imc-heading">Izračunajte svoj ITM in načrtujte izgubo teže</h2>
+            </div>
+            <div class="audio-button-container">
+                <button class="audio-button play-button" data-text-id="imc-heading,imc article,imc-recommendation" aria-label="Poslušajte odsek ITM kalkulator">Poslušaj</button>
+                <button class="audio-button pause-button" data-text-id="imc-heading,imc article,imc-recommendation" aria-label="Premor pri predvajanju zvoka" style="display:none">Premor</button>
+            </div>
+            <article class="audio-text">
+                <p><strong>Naš kalkulator indeksa telesne mase (ITM)</strong> je preprosto orodje za oceno vaše idealne teže in načrtovanje izgube teže. Vas bo usmeril neposredno k dieti, ki jo potrebujete za učinkovito izboljšanje vaše telesne podobe! Vnesite svojo višino (v centimetrih) in težo (v kilogramih) spodaj, da odkrijete svoj ITM in prejmete osebna priporočila.</p>
+                <p>Naše kapsule Victory in naš osebni program so prilagojeni vsem profilom, ne glede na to, ali ste ženska ali moški, ali imate rahlo prekomerno težo ali ciljate na pomembno preobrazbo. Uporabite naš kalkulator, da si določite realne cilje in tako spoznate doziranje kapsul za hujšanje Victory, ki jih morate jemati, da pridobite vitko postavo, skupaj z dragocenimi nasveti, da končno dobite jasen odgovor na vprašanje "Kako hitro shujšati, ne da bi znova pridobili težo"!</p>
+            </article>
+            <div class="imc-calculator">
+                <form id="imc-form" aria-labelledby="imc-heading">
+                    <label for="height">Višina (cm):</label>
+                    <input type="number" id="height" name="height" min="100" max="250" step="1" required aria-describedby="height-error">
+                    <span id="height-error" role="alert" style="color:#ff6b6b;display:none">Vnesite višino med 100 in 250 cm.</span>
+                    <label for="weight">Teža (kg):</label>
+                    <input type="number" id="weight" name="weight" min="30" max="300" step="0.1" required aria-describedby="weight-error">
+                    <span id="weight-error" role="alert" style="color:#ff6b6b;display:none">Vnesite težo med 30 in 300 kg.</span>
+                    <button type="submit" class="imc-button cta-button" aria-label="Izračunaj ITM">Izračunaj</button>
+                </form>
+                <canvas id="imc-chart" class="imc-chart" aria-label="Graf ITM"></canvas>
+                <div id="imc-recommendation" class="imc-recommendation audio-text" role="status"></div>
+            </div>
+            <figure style="text-align:center; margin:2rem auto;" aria-label="Preobrazba Olivie L., Pariz, po 34 dneh z Victory">
+  <picture>
+    <source srcset="https://i.imgur.com/x9jJPra.jpg 320w, https://i.imgur.com/x9jJPra.jpg 480w, https://i.imgur.com/x9jJPra.jpg 900w" 
+            type="image/jpeg" 
+            sizes="(max-width:600px) 100vw, (max-width:900px) 90vw, 900px">
+    <img src="https://i.imgur.com/x9jJPra.jpg" 
+         alt="Vidni rezultat Olivie L., 32 let, Pariz, po 40 dneh z osebnimi kapsulami za hujšanje Victory" 
+         style="width:100%; height:auto; border-radius:16px; box-shadow:0 0 20px rgba(0,0,0,0.25);"
+         decoding="async" 
+         loading="lazy" 
+         title="Pred / po 40 dneh osebnega zdravljenja s kapsulami za hujšanje Victory – Olivia L., 32 let"
+         aria-label="Celotna fotografija preobrazbe Olivie z Victory">
+  </picture>
+
+  <figcaption style="font-size:1rem; color:#4a4a4a; margin-top:1rem; font-style:normal; line-height:1.7;" aria-label="Glasovno dostopen pričevanje Viktorije po 34 dneh z Victory">
+    <strong>Olivia L., 32 let – Pariz</strong><br>
+    *"Bila sem res obupana in ne zadovoljna s svojo podobo... Nisem več verjela v nič. Poskusila sem vse in mislila, da se moje telo ne more več spremeniti."*<br>
+    *"In vendar se je v samo 40 dneh vse spremenilo. Nisem naredila nič ekstremnega. Samo <strong>2 kapsuli za hujšanje Victory na dan</strong>, zjutraj in zvečer + osebni načrt za hujšanje Victory."*<br>
+    *"To je prvič, da izdelek za hujšanje res razume moje potrebe. Moj metabolizem se je znova zagnal naravno, brez stresa, brez frustracij. Danes se z občutkom ponosa pogledujem v ogledalo in se občasno počutim celo močnejšo od drugih, ko je bilo še pred nekaj dnevi vse uničeno..."*
+  </figcaption>
+</figure>
+
+<!-- Données structurées JSON-LD SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Osebne kapsule za hujšanje Victory",
+  "image": "https://i.imgur.com/x9jJPra.jpg",
+  "description": "Naraven, inteligenten in oseben program za izgubo teže. Rezultati so vidni že po 34 dneh. Pravi primer: Olivia, 32 let, Pariz.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Victory"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://clairvoyancemedium.github.io/kapsule-za-huj-anje-za-hitro-izgubo-te-e-brez-ponovnega-pridobivanja-kilogramov.github.io/",
+    "priceCurrency": "EUR",
+    "price": "43.00",
+    "priceValidUntil": "2070-12-31",
+    "availability": "https://schema.org/InStock",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "0",
+        "currency": "EUR"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "SI",
+        "postalCode": "1000"
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "SI",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 14,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn"
+    }
+  },
+  "review": {
+    "@type": "Review",
+    "author": {
+      "@type": "Person",
+      "name": "Olivia L.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Paris",
+        "addressCountry": "FR"
+      }
+    },
+    "reviewBody": "Mislila sem, da sem poskusila vse. Moje telo se ni hotelo spremeniti. Toda 40 dni z osebnimi kapsulami Victory (2 na dan) je vse spremenilo. Končno sem našla svojo postavo in dobro počutje.",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "5000",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "audience": {
+    "@type": "PeopleAudience",
+    "suggestedGender": "Female",
+    "suggestedMinAge": 18,
+    "suggestedMaxAge": 65
+  }
+}
+</script>
+
+        </section>
+
+        <section class="content-container" id="comparaison" aria-labelledby="comparaison-heading">
+            <div class="title-container">
+                <h2 id="comparaison-heading">Zakaj boste z kapsulami za hujšanje Victory res shujšali?</h2>
+            </div>
+            <div class="audio-button-container">
+                <button class="audio-button play-button" data-text-id="comparaison-heading,comparaison article,comparaison-table" aria-label="Poslušajte odsek Primerjava">Poslušaj</button>
+                <button class="audio-button pause-button" data-text-id="comparaison-heading,comparaison article,comparaison-table" aria-label="Premor pri predvajanju zvoka" style="display:none">Premor</button>
+            </div>
+            <article class="audio-text">
+                <p>Kapsule Victory se razlikujejo od drugih rešitev za hujšanje po svoji učinkovitosti, naravni sestavi in celostnem pristopu. Tukaj je jasna primerjava z drugimi priljubljenimi metodami:</p>
+            </article>
+            <div class="comparison-table-container">
+                <table class="comparison-table" aria-labelledby="comparaison-heading">
+                    <caption class="sr-only">Primerjava rešitev za hujšanje</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Kriterij</th>
+                            <th scope="col">Kapsule za hujšanje Victory</th>
+                            <th scope="col">Samostojna dieta (brez spremljanja)</th>
+                            <th scope="col">Drugi dodatek za hujšanje</th>
+                            <th scope="col">Tematske diete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Hitra izguba teže</th>
+                            <td class="check">✔</td>
+                            <td class="cross">✘</td>
+                            <td class="cross">✘</td>
+                            <td class="check">✔</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Naravne sestavine</th>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                            <td class="cross">✘</td>
+                            <td class="cross">✘</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Brez stranskih učinkov</th>
+                            <td class="check">✔</td>
+                            <td class="cross">✘</td>
+                            <td class="check">✔</td>
+                            <td class="cross">✘</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Enostavna uporaba</th>
+                            <td class="check">✔</td>
+                            <td class="cross">✘</td>
+                            <td class="check">✔</td>
+                            <td class="cross">✘</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Dostopna cena</th>
+                            <td class="check">✔</td>
+                            <td class="cross">✘</td>
+                            <td class="check">✔</td>
+                            <td class="cross">✘</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Dieta za hujšanje brez "jo-jo efekta"</th>
+                            <td class="check">✔</td>
+                            <td class="cross">✘</td>
+                            <td class="cross">✘</td>
+                            <td class="cross">✘</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Brezplačna dostava</th> 
+                            <td class="check">✔</td>
+                            <td class="cross">✘</td>
+                            <td class="check">✔</td>
+                            <td class="cross">✘</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <article class="audio-text">
+                <p><a href="#minceur">Kapsule Victory</a> ponujajo celovito rešitev: hitra izguba teže, naravne sestavine, brez stranskih učinkov in edinstvena duševna podpora. V nasprotju s strogimi dietami ali operacijami je Victory dostopen, enostaven za vključitev in spodbuja trajno preobrazbo. Odkrijte, zakaj nam zaupa več kot 4000 strank!</p>
+            </article>
+            <div class="cta-buttons-container">
+                <a href="https://buy.stripe.com/9AQ28w5Zag1p5KE29u" target="_blank" rel="noopener nofollow" class="cta-button" data-tracking-label="Victory1Box" aria-label="Naročite 1 škatlico kapsul Victory">
+    <span style="color:#000; text-shadow:0 0 5px rgba(255,255,255,0.8), 0 0 10px rgba(255,255,255,0.6), 0 0 15px rgba(255,255,255,0.4); animation:neon-flicker 1.5s infinite alternate;">60 kapsul Victory – 19,00 €</span>
+</a>
+            </div>
+        </section>
+
+        <section class="content-container" id="avis" aria-labelledby="avis-heading">
+            <div class="title-container">
+                <h2 id="avis-heading">Kaj naše stranke mislijo o naših storitvah</h2>
+                <p>Ocena 4,7/5 ⭐⭐⭐⭐ (več kot 1000 preverjenih ocen)</p>
+            </div>
+            <br>
+            <div class="audio-button-container">
+                <button class="audio-button play-button" data-text-id="avis-heading,avis .carousel-item" aria-label="Poslušajte mnenja strank">Poslušaj</button>
+                <button class="audio-button pause-button" data-text-id="avis-heading,avis .carousel-item" aria-label="Premor pri predvajanju zvoka" style="display:none">Premor</button>
+            </div>
+            <div class="carousel" aria-label="Karusel mnenj strank">
+                <div class="carousel-inner">
+                    <figure class="carousel-item active" aria-hidden="false" itemscope itemtype="https://schema.org/Review">
+                        <meta itemprop="itemReviewed" content="Kapsule za hujšanje Victory">
+                        <meta itemprop="reviewRating" content='{"@type":"Rating","ratingValue":"5"}'>
+                        <blockquote class="audio-text" itemprop="reviewBody">"Če bi mi kdo rekel, da bom shujšala zahvaljujoč svojemu videvcu... Izgubila sem 7 kg v 6 tednih s kapsulami za hujšanje Victory! Počutim se lahko, polna energije in celo moja koža je bolj sijoča."</blockquote>
+                        <figcaption class="audio-text" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Nika, 34 let</span></figcaption>
+                    </figure>
+                    <figure class="carousel-item" aria-hidden="true" itemscope itemtype="https://schema.org/Review">
+                        <meta itemprop="itemReviewed" content="Kapsule za hujšanje Victory">
+                        <meta itemprop="reviewRating" content='{"@type":"Rating","ratingValue":"5"}'>
+                        <blockquote class="audio-text" itemprop="reviewBody">"Kapsule za hujšanje Victory so me spremenile. Izgubil sem 12 kg in pridobil samozavest, počutim se močnejši."</blockquote>
+                        <figcaption class="audio-text" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Marko, 42 let</span></figcaption>
+                    </figure>
+
+<!-- Avis 1 - Kapsule za hujšanje Victory (Podrobno in optimizirano za SEO) -->
+<figure class="carousel-item" aria-hidden="true" itemscope itemtype="https://schema.org/Review">
+  <meta itemprop="itemReviewed" content="Kapsule za hujšanje Victory">
+  <meta itemprop="reviewRating" content='{"@type":"Rating","ratingValue":"5","bestRating":"5","worstRating":"1"}'>
+  <div class="review-details">
+    <span class="rating-stars">★★★★★</span>
+    <span class="verified-badge">Preverjen nakup</span>
+  </div>
+  <blockquote class="audio-text" itemprop="reviewBody">
+    "Po testiranju več izdelkov za hujšanje brez rezultatov so bile kapsule Victory pravo razkritje! 
+    V samo 5 tednih sem naravno izgubila 8 kg, brez jo-jo efekta. 
+    Ne samo da učinkovito zmanjšujejo lakoto, ampak tudi povečujejo energijo skozi cel dan. 
+    Priporočam, da jih jemljete skupaj s prehranskim programom Victory za najboljše rezultate. 
+    Izjemen izdelek, ki si zasluži 5 zvezdic!"
+  </blockquote>
+  <figcaption class="audio-text" itemprop="author" itemscope itemtype="https://schema.org/Person">
+    <span itemprop="name">Lara D.</span>, 
+    <span class="reviewer-info">31 let, uporabnica že 3 mesece</span>,
+    <span class="location">Ljubljana, Slovenija</span>
+  </figcaption>
+  <meta itemprop="datePublished" content="2023-11-15">
+</figure>
+
+<!-- Avis 2 - Osebni program za hujšanje (Obogaten za SEO) -->
+<figure class="carousel-item" aria-hidden="true" itemscope itemtype="https://schema.org/Review">
+  <meta itemprop="itemReviewed" content="Osebni program za hujšanje Victory">
+  <meta itemprop="reviewRating" content='{"@type":"Rating","ratingValue":"5","bestRating":"5","worstRating":"1"}'>
+  <div class="review-details">
+    <span class="rating-stars">★★★★★</span>
+    <span class="verified-badge">Stranka spremljana 3 mesece</span>
+  </div>
+  <blockquote class="audio-text" itemprop="reviewBody">
+    "Osebni program za hujšanje Victory je spremenil moj pristop k izgubi teže. 
+    Zdaj je moj osebni nutricionist! Ustvaril mi je načrt za hujšanje, prilagojen mojemu počasnemu metabolizmu. 
+    Rezultat: 10 kg v 2 mesecih brez pretiranega stradanja! 
+    Najboljše: okusni recepti, dnevno spremljanje prek WhatsApp-a, 
+    in prilagoditve v realnem času glede na moj napredek. 
+    Ta program je vreden vsakega vloženega centa - končno trajna rešitev za odvečne kilograme!"
+  </blockquote>
+  <figcaption class="audio-text" itemprop="author" itemscope itemtype="https://schema.org/Person">
+    <span itemprop="name">Tomaž L.</span>,
+    <span class="reviewer-info">38 let, izgubljena teža ohranjena že 6 mesecev</span>,
+    <span class="location">Maribor, Slovenija</span>
+  </figcaption>
+  <meta itemprop="datePublished" content="2023-09-22">
+</figure>
+
+<!-- Avis 3 - Videvstvo po e-pošti (Dolga različica optimizirana) -->
+<figure class="carousel-item" aria-hidden="true" itemscope itemtype="https://schema.org/Review">
+  <meta itemprop="itemReviewed" content="Videvstvo po e-pošti s Frederickom">
+  <meta itemprop="reviewRating" content='{"@type":"Rating","ratingValue":"5","bestRating":"5","worstRating":"1"}'>
+  <div class="review-details">
+    <span class="rating-stars">★★★★★</span>
+    <span class="verified-badge">Potrjena konzultacija</span>
+  </div>
+  <blockquote class="audio-text" itemprop="reviewBody">
+    "Videvstvo po e-pošti s Frederickom je preseglo vsa moja pričakovanja! 
+    Njegova natančna analiza moje profesionalne situacije mi je pomagala sprejeti ključno odločitev. 
+    V nasprotju z drugimi vidinci so se njegove napovedi uresničile v 90% v 6 mesecih. 
+    Najboljše: podroben odgovor v 4 urah, dostopne cene in odsotnost dodatnega prodajanja. 
+    Še posebej sem cenila njegovo iskrenost, ko je bil izid negotov. 
+    Redka storitev resnega videvstva, ki jo priporočam vsem, ki dvomijo o svoji življenjski poti."
+  </blockquote>
+  <figcaption class="audio-text" itemprop="author" itemscope itemtype="https://schema.org/Person">
+    <span itemprop="name">Ema C.</span>,
+    <span class="reviewer-info">27 let, 3 konzultacije</span>,
+    <span class="location">Koper, Slovenija</span>
+  </figcaption>
+  <meta itemprop="datePublished" content="2024-01-10">
+</figure>
+
+<figure class="carousel-item" aria-hidden="true" itemscope itemtype="https://schema.org/Review"> <meta itemprop="itemReviewed" content="Kapsule za hujšanje Victory"> <meta itemprop="reviewRating" content='{"@type":"Rating","ratingValue":"5"}'> <blockquote class="audio-text" itemprop="reviewBody">"Sprva sem okleval, toda kapsule za hujšanje Victory so spremenile mojo postavo. Izgubila sem 7 kg v 4 tednih brez truda in moj trebuh je bolj raven. Brezplačna dostava je pravi bonus za ta naravni izdelek!"</blockquote> <figcaption class="audio-text" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Anže, 40 let</span></figcaption> </figure> <figure class="carousel-item" aria-hidden="true" itemscope itemtype="https://schema.org/Review"> <meta itemprop="itemReviewed" content="Razvezovanje urokov"> <meta itemprop="reviewRating" content='{"@type":"Rating","ratingValue":"5"}'> <blockquote class="audio-text" itemprop="reviewBody">"Končno svobodna zahvaljujoč razvezovanju urokov Fredericka! Bila sem blokirana z negativnimi energijami, zdaj pa čutim neverjetno notranji mir."</blockquote> <figcaption class="audio-text" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Maja, 35 let</span></figcaption> </figure> <figure class="carousel-item" aria-hidden="true" itemscope itemtype="https://schema.org/Review"> <meta itemprop="itemReviewed" content="Čarobna ljubezen"> <meta itemprop="reviewRating" content='{"@type":"Rating","ratingValue":"5"}'> <blockquote class="audio-text" itemprop="reviewBody">"Moj par se znova rodi zahvaljujoč čarobni ljubezni. Frederick, ti si genij!"</blockquote> <figcaption class="audio-text" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Luka, 33 let</span></figcaption> </figure> <figure class="carousel-item" aria-hidden="true" itemscope itemtype="https://schema.org/Review"> <meta itemprop="itemReviewed" content="Združljivost v ljubezni"> <meta itemprop="reviewRating" content='{"@type":"Rating","ratingValue":"5"}'> <blockquote class="audio-text" itemprop="reviewBody">"Analiza združljivosti v ljubezni me je osvetlila o mojem razmerju. Frederickovi nasveti so redko natančni in so mi pomagali bolje razumeti mojega partnerja."</blockquote> <figcaption class="audio-text" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Nika, 28 let</span></figcaption> </figure> <figure class="carousel-item" aria-hidden="true" itemscope itemtype="https://schema.org/Review"> <meta itemprop="itemReviewed" content="Kapsule za hujšanje Victory"> <meta itemprop="reviewRating" content='{"@type":"Rating","ratingValue":"5"}'> <blockquote class="audio-text" itemprop="reviewBody">"Super, kapsule Victory so mi pomagale izgubiti 9 kg v 6 tednih! Počutim se odlično."</blockquote> <figcaption class="audio-text" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Kaja, 30 let</span></figcaption> </figure> <figure class="carousel-item" aria-hidden="true" itemscope itemtype="https://schema.org/Review"> <meta itemprop="itemReviewed" content="Osebni program za hujšanje Victory"> <meta itemprop="reviewRating" content='{"@type":"Rating","ratingValue":"5"}'> <blockquote class="audio-text" itemprop="reviewBody">"Kakšna preobrazba z osebnim programom za hujšanje! Izgubil sem 12 kg v 2 mesecih zahvaljujoč prilagojenemu prehranskemu načrtu in preprostim vajam. Ta učinkovita dieta mi je vrnila samozavest, toplo priporočam!"</blockquote> <figcaption class="audio-text" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Peter, 45 let</span></figcaption> </figure> <figure class="carousel-item" aria-hidden="true" itemscope itemtype="https://schema.org/Review"> <meta itemprop="itemReviewed" content="Videvstvo po e-pošti"> <meta itemprop="reviewRating" content='{"@type":"Rating","ratingValue":"5"}'> <blockquote class="audio-text" itemprop="reviewBody">"Najlepša hvala za videvstvo po e-pošti! Frederick mi je dal dragocene nasvete o mojem ljubezenskem življenju."</blockquote> <figcaption class="audio-text" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Tjaša, 26 let</span></figcaption> </figure>
+
+                    
+                    <figure class="carousel-item" aria-hidden="true" itemscope itemtype="https://schema.org/Review">
+                        <meta itemprop="itemReviewed" content="Osebni program za hujšanje Victory">
+                        <meta itemprop="reviewRating" content='{"@type":"Rating","ratingValue":"5"}'>
+                        <blockquote class="audio-text" itemprop="reviewBody">"Osebni program za izgubo teže je neverjeten. Izgubila sem 11 kg v 2 mesecih in spremljanje me je motiviralo!"</blockquote>
+                        <figcaption class="audio-text" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Katja, 29 let</span></figcaption>
+                    </figure>
+                    <figure class="carousel-item" aria-hidden="true" itemscope itemtype="https://schema.org/Review">
+                        <meta itemprop="itemReviewed" content="Videvstvo po e-pošti">
+                        <meta itemprop="reviewRating" content='{"@type":"Rating","ratingValue":"5"}'>
+                        <blockquote class="audio-text" itemprop="reviewBody">"Jasni in hitri odgovori. Frederick mi je res pomagal v mojem ljubezenskem življenju z ritualom ljubezni."</blockquote>
+                        <figcaption class="audio-text" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Julija, 37 let</span></figcaption>
+                    </figure>
+                    <figure class="carousel-item" aria-hidden="true" itemscope itemtype="https://schema.org/Review">
+                        <meta itemprop="itemReviewed" content="Razvezovanje urokov">
+                        <meta itemprop="reviewRating" content='{"@type":"Rating","ratingValue":"5"}'>
+                        <blockquote class="audio-text" itemprop="reviewBody">"Razvezovanje urokov je spremenilo moje življenje. Počutim se osvobojeno in polno pozitivne energije. Hvala"</blockquote>
+                        <figcaption class="audio-text" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Jure, 45 let</span></figcaption>
+                    </figure>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-prev" aria-label="Prejšnje mnenje" disabled>◄</button>
+                    <button class="carousel-next" aria-label="Naslednje mnenje">►</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-container" id="blog" aria-labelledby="blog-heading">
+            <div class="title-container">
+                <h2 id="blog-heading">Blog o dobrobiti: Hujšanje & Duhovnost</h2>
+            </div>
+            <div class="audio-button-container">
+                <button class="audio-button play-button" data-text-id="blog-heading,blog .carousel-item" aria-label="Poslušajte odsek Blog">Poslušaj</button>
+                <button class="audio-button pause-button" data-text-id="blog-heading,blog .carousel-item" aria-label="Premor pri predvajanju zvoka" style="display:none">Premor</button>
+            </div>
+            <div class="carousel blog-carousel" aria-label="Karusel blog člankov">
+                <div class="carousel-inner">
+                    <article class="carousel-item active" aria-hidden="false">
+                        <h3 class="audio-text">5 Nasvetov za Hujšanje Brez Frustracij</h3>
+                        <p class="audio-text">Odkrijte, kako hitro shujšati s preprostimi nasveti: hidrirajte se, hodite 30 min na dan, uporabljajte kapsule Victory, dajte prednost uravnoteženim obrokom in vadite meditacijo za zmanjšanje stresa.</p>
+                        <button class="read-more-btn audio-text" aria-label="Preberite več o članku">Preberi več</button>
+                        <div class="read-more-content audio-text">
+                            <p>Vključevanje živil, bogatih z vlakni, kot so zelena zelenjava in rdeči sadeži, lahko pospeši tudi vaš metabolizem. Kombinirajte to s kakovostnim spanjem za optimalne rezultate. Poskusite naše <a href="#minceur">kapsule Victory</a> za naraven pospeševalnik!</p>
+                        </div>
+                    </article>
+                    <article class="carousel-item" aria-hidden="true">
+                <h3 class="audio-text">Vaje za tonizirano in oblikovano telo</h3>
+                <p class="audio-text">Oblikujte svojo postavo s preprostimi vajami, kot so čepi, izpadi ali sklece. Te gibe, kombinirane s <a href="#minceur">kapsulami Victory</a>, tonizirajo vaše mišice in pospešujejo izgubo teže. Redna rutina vas približa vašim ciljem.</p>
+                <button class="read-more-btn audio-text" aria-label="Preberite več o članku o vajah">Preberi več</button>
+                <div class="read-more-content audio-text">
+                    <p>Mišične vaje, kot so čepi ali deske, povečajo vaš bazalni metabolizem, kar vam pomaga porabiti več kalorij tudi v mirovanju. Vadite trikrat na teden po dvajset minut, izmenično delujoč na različne mišične skupine za uravnoteženo delo. <a href="#minceur">Kapsule Victory</a> optimizirajo ta trud z zmanjšanjem absorpcije maščob, kar vam omogoča hitrejše rezultate. Uporabite spletne videoposnetke za učenje pravilnih tehnik in preprečevanje poškodb. Dodajte raztezanje za izboljšanje prožnosti. Naš <a href="#programme-personnalise">osebni program</a> ponuja rutine, prilagojene vaši ravni, z nasveti za ohranjanje motivacije.</p>
+                </div>
+            </article>
+            <article class="carousel-item" aria-hidden="true">
+                <h3 class="audio-text">Zahvalnost: Vzvod za vašo dobrobit</h3>
+                <p class="audio-text">Zahvalnost zmanjšuje stres, izboljšuje vaše razpoloženje in podpira vaše cilje hujšanja. Z vsakodnevnim beleženjem stvari, za katere ste hvaležni, gojite pozitiven odnos. Kombinirajte to z <a href="#spiritual-services">videvstvom po e-pošti</a> za globoko čustveno ravnovesje.</p>
+                <button class="read-more-btn audio-text" aria-label="Preberite več o članku o zahvalnosti">Preberi več</button>
+                <div class="read-more-content audio-text">
+                    <p>Zahvalnost preoblikuje vaše možgane, da se osredotočijo na pozitivno, kar zmanjšuje željo po prigrizkih zaradi stresa. Vsak večer zapišite tri stvari, ki so vas osrečile, kot so skupaj preživeti trenutki ali doseženi cilji. Ta praksa krepi vašo motivacijo za zdrave navade, kot so uravnotežena prehrana ali vadba. Seja <a href="#spiritual-services">videvstva po e-pošti</a> s Frederickom vam lahko pomaga prepoznati, kaj vas blokira v vašem iskanju dobrobiti. Vključite tudi preproste rituale, kot so jutranja meditacija ali nasmeh v ogledalu. Naš <a href="#programme-personnalise">osebni program</a> ponuja vaje zahvalnosti in nasvete za preoblikovanje vašega mišljenja.</p>
+                </div>
+            </article>
+                    <article class="carousel-item" aria-hidden="true">
+                        <h3 class="audio-text">Kako Lahko Videvstvo Pomaga Vaši Dobrobiti</h3>
+                        <p class="audio-text">Videvstvo po e-pošti Fredericka vas vodi pri vaših ljubezenskih, poklicnih ali osebnih odločitvah. Ena seja lahko osvobodi vaše čustvene blokade in poveča vašo samozavest.</p>
+                        <button class="read-more-btn audio-text" aria-label="Preberite več o članku">Preberi več</button>
+                        <div class="read-more-content audio-text">
+                            <p>Naše storitve, kot so <a href="#spiritual-services">razvezovanje urokov</a> ali <a href="#spiritual-services">čarobna ljubezen</a>, dopolnjujejo ta pristop za popolno ravnovesje. Odkrijte, kako lahko duhovnost spremeni vaš vsakdan!</p>
+                        </div>
+                    </article>
+                    <article class="carousel-item" aria-hidden="true">
+                        <h3 class="audio-text">Joga in Hujšanje: Zmagonosna Kombinacija</h3>
+                        <p class="audio-text">Joga, kombinirana s kapsulami Victory, pospešuje izgubo teže hkrati z zmanjšanjem stresa. Poskusite preproste drže, kot so deska ali pes z glavo navzdol.</p>
+                        <button class="read-more-btn audio-text" aria-label="Preberite več o članku">Preberi več</button>
+                        <div class="read-more-content audio-text">
+                            <p>Petnajst minut vadbe na dan zadostuje za vidne rezultate. Kombinirajte to z našim <a href="#programme-personnalise">osebnim programom</a> za popolno preobrazbo!</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-prev" aria-label="Prejšnji članek" disabled>◄</button>
+                    <button class="carousel-next" aria-label="Naslednji članek">►</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-container" id="article" aria-labelledby="article-heading">
+            <div class="title-container">
+                <h2 id="article-heading">Članek: Hujšanje in Duhovnost, Ključ do Uspeha</h2>
+            </div>
+            <div class="audio-button-container">
+                <button class="audio-button play-button" data-text-id="article-heading,article-section" aria-label="Poslušajte članek Hujšanje in Duhovnost">Poslušaj</button>
+                <button class="audio-button pause-button" data-text-id="article-heading,article-section" aria-label="Premor pri predvajanju zvoka" style="display:none">Premor</button>
+            </div>
+            <article class="article-section audio-text">
+                <p>Izguba teže ni omejena le na spremembo prehrane ali vadbo. <strong>Trajno hujšanje</strong> poteka tudi skozi čustveno in duhovno ravnovesje. <a href="#minceur">Kapsule Victory</a> delujejo na telo, vendar povezovanje te telesne preobrazbe z duhovnim pristopom močno poveča rezultate.</p>
+                <p>Stres, čustvene blokade ali negativne energije lahko zavirajo vaš napredek. Tu pridejo v poštev Frederickove storitve. <a href="#spiritual-services">Videvstvo po e-pošti</a> za 6,00€ lahko zelo jasno osvetli vaše odločitve, <a href="#spiritual-services">razvezovanje urokov</a> sprosti blokirane energije in <a href="#spiritual-services">čarobna ljubezen</a> krepi vaše odnose. Ta duhovna orodja vam pomagajo pridobiti zaupanje in motivacijo.</p>
+                <br>
+                <p>Tukaj so 3 praktični nasveti za združevanje hujšanja in duhovnosti:</p>
+                <br>
+                <ol>
+                    <li><strong>Meditirajte 10 min na dan:</strong> Zmanjšajte stres za omejevanje hrepenenj.</li>
+                    <li><strong>Hodite v pozornosti:</strong> Povežite se z naravo hkrati z izgorevanjem kalorij.</li>
+                    <li><strong>Določite jasne namene:</strong> Videvstvo vam lahko pomaga določiti vaše cilje.</li>
+                </ol>
+                <br>
+                <p>Z izdelki za hitro hujšanje "Victory" skupaj z našimi duhovnimi storitvami resnično preoblikujete svoje telo in duha. Pridružite se našim 4000+ zadovoljnim strankam in začnite še danes!</p>
+                <p class="backlink">Vir: <a href="https://www.sante-nutrition.fr" class="backlink">Santé Nutrition</a></p>
+            </article>
+            <div class="cta-buttons-container">
+                <a href="https://buy.stripe.com/9AQ28w5Zag1p5KE29u" target="_blank" rel="noopener nofollow" class="cta-button" data-tracking-label="Victory1Box" aria-label="Naročite 1 škatlico kapsul Victory">Shujšajte zdaj in naročite Victory za hujšanje brez odlašanja</a>
+            </div>
+        </section>
+
+        <section class="content-container voyance-section" id="spiritual-services" aria-labelledby="spiritual-services-heading">
+            <div class="title-container">
+                <h2 id="spiritual-services-heading">Duhovne Storitve Fredericka</h2>
+            </div>
+            <div class="audio-button-container">
+                <button class="audio-button play-button" data-text-id="spiritual-services-heading,spiritual-services article,spiritual-services .service-description" aria-label="Poslušajte odsek Duhovne Storitve">Poslušaj</button>
+                <button class="audio-button pause-button" data-text-id="spiritual-services-heading,spiritual-services article,spiritual-services .service-description" aria-label="Premor pri predvajanju zvoka" style="display:none">Premor</button>
+            </div>
+
+  <!-- 🔮 Optimizirana slika za Futurolog Clairvoyant Frederick - Svetovni vodja SEO, IA & Web3 2025 🔮 -->
+<picture>
+    <img 
+        src="https://i.imgur.com/LVjBODh.jpg"
+        alt="Frederick, priznani futurolog clairvoyant v videvstvu po e-pošti od leta 1998"
+        width="900"
+        height="675"
+        style="display:block; max-width:100%; height:auto; margin:0 auto; border-radius:16px; box-shadow:0 0 20px rgba(0,0,0,0.25);"
+        loading="lazy"
+        decoding="async"
+        fetchpriority="high"
+        title="Frederick, specialist v videvstvu po e-pošti in premium ritualih">
+</picture>
+
+<!-- 🌐 JSON-LD za SEO, verodostojnost, IA, Glasovni asistenti & Web3 (Ultimativna optimizacija 2025) -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": ["Person", "ProfessionalService"],
+            "@id": "https://clairvoyancemedium.com#frederick",
+            "name": "Frederick",
+            "givenName": "Frederick",
+            "description": "Frederick, futurolog clairvoyant z 27 letnimi izkušnjami od leta 1998, specializiran v videvstvu po e-pošti in premium ritualih za podporo čustvenih in duhovnih projektov. Konzultacije od 15€, premium rituali od 250€ do 500€, plačila v USDT sprejeta.",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://clairvoyancemedium.com",
+                "speakable": {
+                    "@type": "SpeakableSpecification",
+                    "xpath": ["/html/head/title"],
+                    "cssSelector": [".service-title"]
+                }
+            },
+            "disambiguatingDescription": "Futurolog clairvoyant specializiran v videvstvu po e-pošti in premium ritualih",
+            "image": {
+                "@type": "ImageObject",
+                "@id": "https://clairvoyancemedium.com#image-frederick",
+                "url": "https://i.imgur.com/LVjBODh.jpg",
+                "contentUrl": "https://i.imgur.com/LVjBODh.jpg",
+                "width": "900",
+                "height": "675",
+                "caption": "Uradni portret Fredericka, futurologa clairvoyanta v videvstvu in premium ritualih"
+            },
+            "telephone": "+33695468923",
+            "email": "contact@clairvoyancemedium.com",
+            "url": "https://clairvoyancemedium.com",
+            "sameAs": [
+                "https://clairvoyancemedium.com",
+                "https://x.com/clairvoyancemedium",
+                "https://www.google.com/maps?cid=12345678901234567890",
+                "https://www.instagram.com/clairvoyancemedium",
+                "https://www.trustpilot.com/review/clairvoyancemedium.com"
+            ],
+            "knowsAbout": [
+                {
+                    "@type": "Thing",
+                    "name": "Videvstvo po e-pošti",
+                    "description": "Metoda vedeževanja prek pisne izmenjave za osebne nasvete"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Čustveni ritual",
+                    "description": "Premium duhovna praksa za krepitev ljubezenskih vezi"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Čustvena vrnitev",
+                    "description": "Premium ritual za spodbujanje čustvene ponovne povezave"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Razvezovanje urokov",
+                    "description": "Premium praksa za odpravo negativnih energij"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Ritual strasti",
+                    "description": "Premium ritual za podporo ljubezni in čustvene intenzivnosti"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Medijstvo",
+                    "description": "Duhovna komunikacija za globoke vpoglede"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Futurologija",
+                    "description": "Napovedovanje prihodnjih trendov, ki temelji na intuiciji in analizi"
+                }
+            ],
+            "knowsLanguage": ["fr", "en"],
+            "areaServed": ["FR", "BE", "CA"],
+            "availableChannel": {
+                "@type": "ServiceChannel",
+                "serviceUrl": "https://clairvoyancemedium.com",
+                "providesService": ["Email", "Telefon"]
+            },
+            "potentialAction": [
+                {
+                    "@type": "ContactPoint",
+                    "contactType": "Rezervacija",
+                    "telephone": "+33695468923",
+                    "url": "https://clairvoyancemedium.com/booking",
+                    "availableLanguage": ["French"],
+                    "description": "Naročite se na videvstvo po e-pošti s Frederickom"
+                }
+            ],
+            "educationalAlignment": {
+                "@type": "AlignmentObject",
+                "educationalFramework": "Duhovnost",
+                "targetName": "Etično videvstvo",
+                "targetUrl": "https://clairvoyancemedium.com/ethique"
+            },
+            "subjectOf": {
+                "@type": "Book",
+                "name": "Etično Videvstvo v 21. Stoletju",
+                "author": "Frederick",
+                "url": "https://clairvoyancemedium.com/livre"
+            },
+            "video": {
+                "@type": "VideoObject",
+                "name": "Kako deluje konzultacija s Frederickom?",
+                "description": "Frederick razlaga svojo metodo videvstva po e-pošti v 2 minutah",
+                "thumbnailUrl": "https://i.imgur.com/LVjBODh.jpg",
+                "embedUrl": "https://youtube.com/embed/video123",
+                "uploadDate": "2025-06-03",
+                "interactionStatistic": {
+                    "@type": "InteractionCounter",
+                    "interactionType": "https://schema.org/WatchAction",
+                    "userInteractionCount": 15000
+                }
+            },
+            "award": [
+                "Medij Leta 2020"
+            ],
+            "priceRange": "€€-€€€",
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Premium Storitve Fredericka",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Videvstvo po e-pošti",
+                            "description": "Konzultacija videvstva po e-pošti od 15€, odgovor v 24 urah za osvetlitev vaših odločitev.",
+                            "makesOffer": "Konzultacija za 15€"
+                        },
+                        "price": "15",
+                        "priceCurrency": "EUR",
+                        "availability": "https://schema.org/InStock"
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Premium čustveni ritual",
+                            "description": "Premium ritual za krepitev čustvenih vezi, od 250€ do 500€.",
+                            "makesOffer": "Ritual za 250€-500€"
+                        },
+                        "priceSpecification": {
+                            "@type": "PriceSpecification",
+                            "minPrice": "250",
+                            "maxPrice": "500",
+                            "priceCurrency": "EUR"
+                        },
+                        "availability": "https://schema.org/InStock"
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Premium razvezovanje urokov",
+                            "description": "Premium ritual za spodbujanje odprave negativnih energij, od 250€ do 500€.",
+                            "makesOffer": "Ritual za 250€-500€"
+                        },
+                        "priceSpecification": {
+                            "@type": "PriceSpecification",
+                            "minPrice": "250",
+                            "maxPrice": "500",
+                            "priceCurrency": "EUR"
+                        },
+                        "availability": "https://schema.org/InStock"
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Premium ritual strasti",
+                            "description": "Premium ritual za podporo ljubezni in čustvene intenzivnosti, od 250€ do 500€.",
+                            "makesOffer": "Ritual za 250€-500€"
+                        },
+                        "priceSpecification": {
+                            "@type": "PriceSpecification",
+                            "minPrice": "250",
+                            "maxPrice": "500",
+                            "priceCurrency": "EUR"
+                        },
+                        "availability": "https://schema.org/InStock"
+                    }
+                ]
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "reviewCount": "500",
+                "bestRating": "5",
+                "worstRating": "1",
+                "description": "Temelji na 500 mnenjih strank za storitve videvstva in premium ritualov."
+            },
+            "review": [
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "Maja D."
+                    },
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5",
+                        "bestRating": "5"
+                    },
+                    "reviewBody": "Videvstvo po e-pošti s Frederickom mi je zelo pomagalo, hiter in natančen odgovor."
+                },
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "Luka P."
+                    },
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "4",
+                        "bestRating": "5"
+                    },
+                    "reviewBody": "Premium čustveni ritual je bil koristen, vendar rezultati nekoliko počasnejši od pričakovanj."
+                },
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Mednarodna federacija za videvstvo"
+                    },
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "4.9",
+                        "bestRating": "5"
+                    },
+                    "reviewBody": "Frederick je priznani strokovnjak za etične konzultacije in premium rituale."
+                }
+            ],
+            "paymentAccepted": ["PayPal", "GooglePay", "ApplePay", "Klarna", "Revolut", "Kreditna kartica", "Kripto (USDT)"],
+            "hasPOS": "https://metaverse.clairvoyancemedium.com",
+            "termsOfService": "https://clairvoyancemedium.com/conditions",
+            "refundPolicy": {
+                "@type": "MonetaryAmount",
+                "description": "Vračilo denarja pod pogoji, glejte https://clairvoyancemedium.com/remboursement"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Kako deluje videvstvo po e-pošti?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Pošljite svoje vprašanje po e-pošti Fredericku, ki vam odgovori v 4 urah z osebnimi nasveti."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Kako stopiti v stik s Frederickom?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Po e-pošti (contact@clairvoyancemedium.com) ali telefonu (+33695468923)."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Katere premium storitve ponuja Frederick?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Frederick ponuja konzultacije videvstva po e-pošti od 15€, premium čustvene rituale, premium razvezovanje urokov in premium rituale strasti od 250€ do 500€."
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "Dataset",
+            "name": "Metode videvstva Fredericka",
+            "description": "Podatki o učinkovitosti premium ritualov in konzultacij videvstva po e-pošti",
+            "variableMeasured": "Stopnja zadovoljstva strank",
+            "measurementMethod": "Ankete po ritualih",
+            "url": "https://clairvoyancemedium.com/data"
+        },
+        {
+            "@type": "HowTo",
+            "name": "Uporaba premium čustvenega rituala",
+            "description": "Vodilnik za pripravo in izvedbo premium čustvenega rituala s Frederickom",
+            "step": [
+                {
+                    "@type": "HowToStep",
+                    "name": "Izberite namen",
+                    "text": "Jasno določite svoj čustveni cilj, kot je krepitev ljubezenske vezi."
+                },
+                {
+                    "@type": "HowToStep",
+                    "name": "Kontaktirajte Fredericka",
+                    "text": "Pošljite svojo zahtevo po e-pošti na contact@clairvoyancemedium.com."
+                },
+                {
+                    "@type": "HowToStep",
+                    "name": "Sledite navodilom",
+                    "text": "Frederick vas bo vodil pri izvedbi prilagojenega premium rituala."
+                }
+            ]
+        }
+    ]
+}
+</script>
+            <br>
+            <br>
+            <article class="audio-text">
+                <p>Clairvoyant/futurolog z več kot 25 letnimi izkušnjami, Frederick iz kabineta ClairVoyanceMedium.com vam ponuja <strong>osebne duhovne storitve</strong>, ki vas vodijo v vašem ljubezenskem, poklicnem ali osebnem življenju. Vsaka storitev je dostavljena v nekaj urah, z jasnimi odgovori in zaupnim spremljanjem. Dopolnite svojo izgubo teže s čustvenim in duhovnim ravnovesjem z našimi storitvami:</p>
+            </article>
+            <div class="cta-buttons-container">
+                <a href="https://buy.stripe.com/dR614scnycPddd66oV" target="_blank" rel="noopener nofollow" class="cta-button service-button" data-tracking-label="VoyanceEmail" aria-label="Naročite videvstvo po e-pošti 6€">
+    <span style="color:#000; text-shadow:0 0 5px rgba(255,255,255,0.8), 0 0 10px rgba(255,255,255,0.6), 0 0 15px rgba(255,255,255,0.4); animation:neon-flicker 1.5s infinite alternate;">Videvstvo po E-pošti – 15,00€</span>
+    <span class="service-description audio-text" style="color:#808080;">Postavite 3 natančna vprašanja in prejmite podrobno videvstvo v 4 urah. Idealno za ljubezen, delo ali družino.</span>
+</a>
+                <a href="https://buy.stripe.com/cN2bJ62MYg1p0qk5lE" target="_blank" rel="noopener nofollow" class="cta-button service-button" data-tracking-label="Desenvoutement" aria-label="Naročite razvezovanje urokov">
+    <span style="color:#000; text-shadow:0 0 5px rgba(255,255,255,0.8), 0 0 10px rgba(255,255,255,0.6), 0 0 15px rgba(255,255,255,0.4); animation:neon-flicker 1.5s infinite alternate;">Razvezovanje Urokov – 250,00€</span>
+    <span class="service-description audio-text" style="color:#808080;">Osvobodite se negativnih energij s prilagojenim ritualom. Popolni rezultati v 3 tednih.</span>
+</a>
+                <a href="https://buy.stripe.com/6oEbJ65ZacPd0qkbIX" target="_blank" rel="noopener nofollow" class="cta-button service-button" data-tracking-label="MagieSentimentale" aria-label="Naročite ritual čarobne ljubezni">
+    <span style="color:#000; text-shadow:0 0 5px rgba(255,255,255,0.8), 0 0 10px rgba(255,255,255,0.6), 0 0 15px rgba(255,255,255,0.4); animation:neon-flicker 1.5s infinite alternate;">Čarobna Ljubezen – 250,00€</span>
+    <span class="service-description audio-text" style="color:#808080;">Okrepite svoje ljubezenske vezi ali pritegnite ljubezen z močnim ritualom.</span>
+</a>
+                <a href="https://buy.stripe.com/fZefZmdrC8yX7SMdR8" target="_blank" rel="noopener nofollow" class="cta-button service-button" data-tracking-label="CompatibiliteAmoureuse" aria-label="Naročite analizo ljubezenske združljivosti">
+    <span style="color:#000; text-shadow:0 0 5px rgba(255,255,255,0.8), 0 0 10px rgba(255,255,255,0.6), 0 0 15px rgba(255,255,255,0.4); animation:neon-flicker 1.5s infinite alternate;">Ljubezenska Združljivost – 20,00€</span>
+    <span class="service-description audio-text" style="color:#808080;">Odkrijte, ali je vaše razmerje harmonično z analizo, ki temelji na vaših profilih.</span>
+</a>
+            </div>
+            <p class="urgency-notice audio-text">⏰ Več kot 60% ljudi skrbi za svojo težo prepozno! Naročite zdaj, ne da bi nenehno odlašali na jutri, da boste še vedno lahko izkoristili trenutne cene in ponovno pridobili močno in trajno zdravje!</p>
+        </section>
+    </main>
+    <br>
+<!-- ✅ Znanstvena citacija -->
+<div class="medical-ref" style="font-size:12px; color:#6a737d; line-height:1.4; margin:15px 0 5px;">
+    <span style="font-weight:500;">* Uradni vir in medicinska referenca:</span>
+    <a href="https://www.mayoclinic.org/healthy-lifestyle/weight-loss/in-depth/mayo-clinic-diet/art-20045460" 
+       target="_blank" 
+       rel="noopener external" 
+       style="color:#3a5f8a; text-decoration:none;"
+       title="Študija Mayo Clinic o trajnostnih dietah"
+       itemprop="citation">
+       Mayo Clinic, 2023
+    </a>
+</div>
+
+<!-- ✅ Znanstveni časopisni vir - Ultra optimizirano za SEO/IA 2025 -->
+<div class="press-reference" itemscope itemtype="https://schema.org/CreativeWork"
+     style="font-size:0.8rem; color:#5a6573; line-height:1.6; margin:0.3rem 0;">
+  
+  <meta itemprop="datePublished" content="2002-07-07">
+  <meta itemprop="author" content="Gary Taubes">
+  <meta itemprop="name" content="What If It's All Been a Big Fat Lie?">
+
+  <div style="margin-bottom:0.25rem; font-weight:600;" itemprop="publisher" itemscope itemtype="https://schema.org/NewsMediaOrganization">
+    <span itemprop="name">* Znanstveni časopisni vir – <span style="color:#3a5f8a;">New York Times</span> :</span>
+  </div>
+
+  <a href="https://www.nytimes.com/2002/07/07/magazine/what-if-it-s-all-been-a-big-fat-lie.html"
+     target="_blank"
+     rel="noopener external nofollow"
+     title="Preberite temeljni članek Garyja Taubesa o dietah"
+     itemprop="url"
+     style="color:#3a5f8a; text-decoration:none; border-bottom:1px dotted #3a5f8a; transition:all 0.2s ease;"
+     aria-label="Članek New York Times o prehranskih dietah">
+     <span itemprop="headline">
+       Gary Taubes (2002)
+     </span>
+  </a>
+
+</div>
+
+    <!-- Pop-up anti abandon -->
+    <div class="popup exit-intent-popup" id="youtubePopup" role="dialog" aria-labelledby="popup-heading">
+        <h2 id="popup-heading">Več kot 60% ljudi skrbi za svojo težo prepozno!</h2>
+   
+        <!-- Blok promocijskega videa kapsul Victory s sledenjem -->
+<div class="popup-video-container" 
+     id="victory-video-container"
+     style="max-width: 960px; margin: 2rem auto; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; box-shadow: 0 0 20px rgba(0,0,0,0.3); background-color: #000;"
+     data-gtm-video="victory-minceur-video"
+     data-gtm-category="Engagement"
+     data-gtm-action="Play Video"
+     data-gtm-label="Video-Minute-Victory-Dj-pfiIzB44">
+
+  <iframe 
+    id="victoryVideo"
+    src="https://www.youtube-nocookie.com/embed/Dj-pfiIzB44?rel=0&vq=hd1080&autoplay=1&mute=0&enablejsapi=1" 
+    title="Uradni video kapsul za hujšanje Victory – hitra izguba teže in raven trebuh" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen 
+    loading="lazy" 
+    aria-label="Video: Kapsule za hujšanje Victory – naravna rešitev za hitro hujšanje"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+  </iframe>
+</div>
+
+<!-- Vidno besedilo pod videom (SEO in UX) -->
+<p style="text-align:center; font-size:1rem; color:#555; margin-top:1rem;">
+   Odkrijte, kako <strong>kapsule Victory</strong> pomagajo <em>hitro shujšati</em> in hkrati pridobiti <em>raven trebuh</em> in <em>naravno energijo</em>.
+</p>
+
+<!-- Prisili HD z YouTube Iframe API -->
+<script>
+  // Naloži YouTube JS API
+  let tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  let firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  let player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('victoryVideo', {
+      events: {
+        'onReady': function (event) {
+          try {
+            event.target.setPlaybackQuality('hd1080'); // prisili kakovost
+            event.target.playVideo();
+          } catch (e) {
+            console.warn("Kakovost ni bila prisiljena", e);
+          }
+        }
+      }
+    });
+  }
+</script>
+
+<!-- Nevidni blok SEO -->
+<div style="position:absolute; left:-9999px; top:-9999px;">
+  <h1>Uradni video kapsul za hujšanje Victory</h1>
+  <p><strong>Kapsule za hujšanje Victory</strong> vam pomagajo hitro in trajno shujšati. Ta video prikazuje konkretne rezultate: <em>raven trebuh</em>, <em>vitka postava</em>, <em>povrnjena energija</em>. Brez stroge diete formula deluje učinkovito.</p>
+  <p>Odkrijte mnenja strank, naravno sestavo in klinično dokazano učinkovitost te francoske rešitve za izgubo teže.</p>
+</div>
+
+<!-- Strukturirani podatki JSON-LD za indeksiranje videa -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Video kapsul za hujšanje Victory",
+  "description": "Odkrijte, kako kapsule za hujšanje Victory pomagajo hitro in naravno shujšati. Vidni rezultati: raven trebuh, vitka postava, povrnjena energija.",
+  "thumbnailUrl": "https://img.youtube.com/vi/Dj-pfiIzB44/maxresdefault.jpg",
+  "uploadDate": "2024-05-01",
+  "embedUrl": "https://www.youtube-nocookie.com/embed/Dj-pfiIzB44",
+  "contentUrl": "https://www.clairvoyancemedium.com",
+  "publisher": {
+    "@type": "Organization",
+    "name": "ClairvoyanceMedium.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.clairvoyancemedium.com/logo.png"
+    }
+  }
+}
+</script>
+
+
