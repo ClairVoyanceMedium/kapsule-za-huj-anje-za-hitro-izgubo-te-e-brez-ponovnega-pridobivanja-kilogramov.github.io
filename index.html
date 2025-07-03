@@ -1840,6 +1840,1237 @@
     </p>
 </footer>
 
+<!-- Tchat IA popolnoma popoln -->
+
+<title>Klepet z umetno inteligenco s sledenjem in glasovnim pomočnikom</title>
+
+    <meta name="description" content="Duhovni chatbot za razvezovanje urokov, zaščito in čiščenje aure s strani Fredericka iz ClairVoyanceMedium.com. Hitro pridobite nazaj vitalnost in spokojnost za enotno ceno.">
+
+    <meta name="keywords" content="uročen, nočne more, razvezovanje urokov, zaščita, čiščenje, energetsko čiščenje, jasnovidnost, aura, energija, pomoč, spanje, rituali, duhovno">
+
+    <style>
+
+        #chat-container {
+
+            position: fixed;
+
+            display: inline-block;
+
+            flex-direction: column;
+
+            z-index: 999999;
+
+            font-family: Arial, sans-serif;
+
+            transition: transform 0.2s;
+
+        }
+
+        #chat-bubble {
+
+            display: flex;
+
+            justify-content: flex-end;
+
+            cursor: move;
+
+        }
+
+        #chat-toggle {
+
+            width: 60px;
+
+            height: 60px;
+
+            background: linear-gradient(145deg, #FFB6C1, #FF69B4);
+
+            color: #fff;
+
+            border: none;
+
+            border-radius: 50%;
+
+            box-shadow: 0 4px 12px rgba(255,105,180,0.7);
+
+            font-size: 1.4rem;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transition: transform 0.2s;
+
+            outline: none;
+
+        }
+
+        #chat-toggle:hover {
+
+            transform: scale(1.05);
+
+        }
+
+        #voice-toggle {
+
+            width: 40px;
+
+            height: 40px;
+
+            background: linear-gradient(145deg, #87CEEB, #5eb6d1);
+
+            color: #fff;
+
+            border: none;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            box-shadow: 0 4px 12px rgba(135,206,235,0.7);
+
+            font-size: 1rem;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-left: 10px;
+
+            transition: transform 0.2s;
+
+            outline: none;
+
+        }
+
+        #voice-toggle:hover {
+
+            transform: scale(1.05);
+
+        }
+
+        #voice-toggle.disabled {
+
+            background: #808080;
+
+            box-shadow: 0 0 10px #808080;
+
+        }
+
+        #chat-box {
+
+            background: #111;
+
+            border-radius: 10px;
+
+            display: none;
+
+            flex-direction: column;
+
+            margin-top: 10px;
+
+            border: 2px solid #FF1493;
+
+            box-shadow: 0 0 10px #FF1493;
+
+            transition: all 0.3s ease;
+
+            max-height: 400px;
+
+        }
+
+        #chat-box.visible {
+
+            display: flex;
+
+        }
+
+        #chat-messages {
+
+            flex: 1;
+
+            padding: 1rem;
+
+            overflow-y: auto;
+
+            color: #fff;
+
+        }
+
+        #chat-messages p {
+
+            margin-bottom: 0.5rem;
+
+            line-height: 1.4;
+
+            opacity: 0;
+
+            animation: fadeIn 0.5s forwards;
+
+        }
+
+        @keyframes fadeIn {
+
+            to { opacity: 1; }
+
+        }
+
+        .bot-message {
+
+            text-align: left;
+
+            color: #fff;
+
+            background: rgba(255,255,255,0.05);
+
+            padding: 0.5rem;
+
+            border-radius: 5px;
+
+            margin-bottom: 0.8rem;
+
+            display: inline-block;
+
+            max-width: 80%;
+
+            border: 2px solid #FF69B4;
+
+            box-shadow: 0 0 8px #FF69B4;
+
+        }
+
+        .user-message {
+
+            text-align: right;
+
+            color: #ffd700;
+
+            margin-bottom: 0.8rem;
+
+            border: 2px solid #AED6F1;
+
+            box-shadow: 0 0 8px #AED6F1;
+
+            padding: 0.5rem;
+
+            border-radius: 5px;
+
+            display: inline-block;
+
+            max-width: 80%;
+
+        }
+
+        #chat-form {
+
+            display: flex;
+
+            border-top: 1px solid #333;
+
+            align-items: center;
+
+            padding: 0.5rem;
+
+        }
+
+        #chat-input {
+
+            flex: 1;
+
+            padding: 0.5rem;
+
+            border: none;
+
+            outline: none;
+
+            color: #333;
+
+            border-radius: 5px 0 0 5px;
+
+        }
+
+        #chat-send {
+
+            background: #87CEEB;
+
+            border: none;
+
+            padding: 0.5rem 1rem;
+
+            cursor: pointer;
+
+            color: #fff;
+
+            font-weight: bold;
+
+            border-radius: 0 5px 5px 0;
+
+            transition: background 0.2s;
+
+        }
+
+        #chat-send:hover {
+
+            background: #5eb6d1;
+
+        }
+
+        @media(max-width: 400px) {
+
+            #chat-container {
+
+                width: 90%;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div id="chat-container">
+
+    <div id="chat-bubble">
+
+        <button id="chat-toggle" aria-expanded="false" aria-label="Odpri klepet">💬</button>
+
+        <button id="voice-toggle" aria-label="Omogoči/Onemogoči glasovni pomočnik">🎤</button>
+
+    </div>
+
+    <div id="chat-box" role="region" aria-label="Klepet z umetno inteligenco">
+
+        <div id="chat-messages" aria-live="polite"></div>
+
+        <form id="chat-form" aria-label="Vnosni obrazec za klepet z umetno inteligenco">
+
+            <input type="text" id="chat-input" placeholder="Postavite svoje vprašanje..." aria-label="Vnesite svoje sporočilo tukaj" autocomplete="off">
+
+            <button type="submit" id="chat-send" aria-label="Pošljite svoje vprašanje">➤</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script nonce="xai-ultra2025">
+
+// Funkcija za sledenje integrirana v GA4
+
+function trackClick(label, category = 'Chat', value = null) {
+
+    console.log(`Sledenje: Label=${label}, Category=${category}, Value=${value}`);
+
+    if (typeof gtag === 'function') {
+
+        gtag('event', label, { 'event_category': category, 'value': value });
+
+    }
+
+}
+
+
+// Prevodi in sporočila
+
+const translations = {
+
+        greeting: "Dobrodošli v vesolju kabineta ClairVoyanceMedium.com! Jaz sem ClairVoyanceGPT, vaš osebni vodnik, tukaj da vam pomagam pridobiti nazaj vitalnost, vitkost in spokojnost s pomočjo naših hujšalnih rešitev Victory in vseh naših duhovnih rešitev, da izboljšamo vaš fizični in duševni komfort!",
+
+        thanks: "Z veseljem, tukaj sem, da vas vodim!",
+
+        goodbye: "Se vidimo kmalu, da nadaljujemo vašo pot do notranje in zunanje zmage z Victory!",
+
+        notUnderstood: "Nisem povsem razumel vašega vprašanja. Bi lahko ponovili ali pojasnili svoje vprašanje?",
+
+        notUnderstoodAfter: "Zdi se, da imamo težave z razumevanjem. Raziščite naše kapsule Victory Minceur ali naš personaliziran program za popolno dobro počutje. Na voljo so tudi duhovne storitve, kot je vedeževanje po e-pošti ali analiza vaše ljubezenske združljivosti!",
+
+        grave: "Vaša situacija se zdi resna. Ukrepajte takoj z našimi rešitvami Victory, da obnovite ravnovesje in energijo. Raziščite naše programe na spletni strani!",
+
+        agree: "Odlično, kako vam lahko še pomagam?"
+
+    };
+
+
+// Baza znanja z "Koristmi"
+
+const knowledgeBase = [
+
+    { question: "Utrujenost | Naveličanost | Otopelost | Iztrebljenost | Šibkost | Obraba", fullAnswer: "Ta izčrpavajoča utrujenost je delo temnega bitja, ki vam požira energijo; zaupajte čiščenje svoje aure Fredericku iz ClairVoyanceMedium.com, da si povrnete vitalnost. Lahko je znak temnega bitja, ki vsak dan izčrpava vašo življenjsko energijo. Frederick, strokovnjak za duhovno čiščenje, uporablja starodavne rituale za čiščenje vaše aure in odganjanje teh škodljivih sil. Če hitro ukrepate, lahko ponovno pridobite bleščečo vitalnost in jasnost uma. Koristi: obnovljena energija in ponovno pridobljena jasnost." },
+
+    { question: "Nočne more | Vizije | Noči | Sanje | Spanje | Snovi", fullAnswer: "Te nočne more niso zgolj sanje, temveč so rezultat zlovešče prisotnosti; pustite Fredericku iz ClairVoyanceMedium.com, da pregoni te sence in vam zagotovi mirne noči. Lahko so manifestacije zlovešče prisotnosti, ki se vdre v vaš um med spanjem. Frederick z 25-letnimi izkušnjami obvlada močne rituale za čiščenje vašega prostora za počitek. Ponovno boste imeli mirne noči in okrepljujoč spanek. Koristi: regenerativni počitek in nočna spokojnost." },
+
+    { question: "Kaos | Turbulenca | Zmeda | Obup | Vrtinec | Tesnoba", fullAnswer: "Kaos, ki vas obdaja, izvira iz motečega uroka; dovolite Fredericku iz ClairVoyanceMedium.com, da vzpostavi red in obnovi vaše duševno ravnovesje. Zmeda in tesnoba kažeta na moteč urok. Frederick, specialist za razvezovanje urokov, razprši te negativne energije. Ponovno boste pridobili duševno stabilnost in notranji mir, ki sta ključna. Koristi: harmonija in notranji mir." },
+
+    { question: "Teža | Pritisk | Zadušitev | Utež | Tesnoba | Stiskanje", fullAnswer: "Ta teža, ki pritiska na vašo dušo, je temna sila; obrnite se na Fredericka iz ClairVoyanceMedium.com, da se osvobodite in ponovno pridobite lahkotnost. Občutek zadušitve je tipičen za temno silo, ki cilja na vašo dušo. Frederick s ciljanimi rituali prekine ta vpliv. Občutili boste ponovno pridobljeno lahkotnost in obnovljeno energijo. Koristi: osvoboditev in obnovljena vitalnost." },
+
+    { question: "Urok | Prekletstvo | Očaranje | Čar | Magija | Čarovništvo", fullAnswer: "Iztrebljenost, nesreča in nočne more so posledica uroka, ki vas drži ujete; uporabite Frederickovo intervencijo iz ClairVoyanceMedium.com, da prekinete te skrivne vezi. Vztrajna utrujenost in kronična nesreča sta znaka uroka. Frederick odlično razvezuje uroke z močnimi rituali, da vas osvobodi. Ponovno boste pridobili srečo in trajne uspehe. Koristi: ponovno pridobljeno blaginjo in zagotovljen zmag." },
+
+    { question: "Neuspeh | Nazadovanje | Padec | Poraz | Nesreča | Izguba", fullAnswer: "Ponavljajoči se neuspehi so posledica uroka, ki blokira vašo pot; pustite Fredericku iz ClairVoyanceMedium.com, da vam odpre pot do uspeha. Ti neuspehi niso naključje: urok blokira vaš uspeh. Frederick odstrani te nevidne ovire in spremeni vašo pot za zagotovljen napredek. Koristi: zmaga in zagotovljen napredek." },
+
+    { question: "Nespečnost | Nemir | Bele noči | Beženje | Budnost | Skrb", fullAnswer: "Vaša nespečnost je povzročena z bitjem, ki vam odvzema počitek; obrnite se na Fredericka iz ClairVoyanceMedium.com, da obnovi vaš nočni mir. Bele noči in nemir sta posledica bitja, ki moti vaš počitek. Frederick pregoni te vplive in vam zagotovi okrepljujoč spanek. Koristi: globok spanek in dnevna energija." },
+
+    { question: "Bolečina | Zlo | Trpljenje | Pečenje | Žalost | Muka", fullAnswer: "Nebojasne bolečine odražajo okultni napad na vaše telo; dovolite Fredericku iz ClairVoyanceMedium.com, da razprši to nevidno zlo. Pečenje in muke kažejo na okultni napad. Frederick z rituali duhovnega zdravljenja prinaša takojšnje olajšanje. Koristi: takojšnje olajšanje in ponovno pridobljeno udobje." },
+
+    { question: "Izolacija | Samota | Zapostavljenost | Stiska | Umik | Mraz", fullAnswer: "Izolacija, ki jo čutite, izvira iz uroka, ki vas ločuje od drugih; zaupajte Fredericku iz ClairVoyanceMedium.com, da vzpostavi tople odnose. Ta samota je posledica uroka, ki vas ločuje od drugih. Frederick prekine to prekletstvo in povrne povezanost in socialno dobro počutje. Koristi: približevanje in socialna izpolnitev." },
+
+    { question: "Kariera | Delo | Ambicija | Stagnacija | Blokada | Polom", fullAnswer: "Oviere v vaši karieri so znak prekletstva, ki zavira vaše ambicije; pustite Fredericku iz ClairVoyanceMedium.com, da sprosti vaš potencial. Stagnacija in neuspehi so posledica prekletstva. Frederick sprosti vaš potencial in vodi do uspeha v vaši karieri. Koristi: zmag in poklicna izpolnitev." },
+
+    { question: "Nesreča | Nesreča | Naključje | Smola | Kobnost | Nesreča", fullAnswer: "Smola, ki jo doživljate, je posledica temnega uroka; obrnite se na Fredericka iz ClairVoyanceMedium.com, da pritegne srečo. Nesreče in katastrofe so delo uroka. Frederick očisti vašo auro in pritegne srečo ter odpre nove priložnosti. Koristi: priložnosti in obnovljena obilica." },
+
+    { question: "Ljubezen | Strast | Romantika | Zlom | Nezadostna ljubezen | Čustvena", fullAnswer: "Pomanjkanje ljubezni je posledica uroka, ki zaklepa vaše srce; dovolite Fredericku iz ClairVoyanceMedium.com, da oživi vaše čustveno življenje. Zlomljena srca ali čustvena samota sta posledica uroka. Frederick s čustveno magijo odstrani to oviro in prinaša nežnost in harmonijo. Koristi: naklonjenost in čustveno ravnovesje." },
+
+    { question: "Družina | Dom | Nesloga | Napetost | Prelom | Konflikt", fullAnswer: "Družinske napetosti so posledica okultne sence; zaupajte Fredericku iz ClairVoyanceMedium.com uskladitev vaših odnosov. Družinski konflikti so posledica okultne sence. Frederick očisti vaš dom in povrne enotnost in mir. Koristi: enotnost in družinski mir." },
+
+    { question: "Otroci | Mali | Potomci | Sin | Hči | Otrok", fullAnswer: "Trpljenje vaših otrok odraža temni vpliv; obrnite se na Fredericka iz ClairVoyanceMedium.com, da očisti njihovo auro. Žalost ali skrbi otrok kažejo na temni vpliv. Frederick očisti njihovo auro in povrne veselje družini. Koristi: sreča in družinska izpolnitev." },
+
+    { question: "Živali | Spremljevalci | Živali | Nervoza | Motnja | Instinkt", fullAnswer: "Nemir vaših živali kaže na prisotnost temne sile; pustite Fredericku iz ClairVoyanceMedium.com, da vzpostavi mir. Nenavadna nervoza kaže na temno prisotnost. Frederick očisti njihovo okolje in zagotovi mir vašim spremljevalcem. Koristi: mir in ravnovesje za vaše spremljevalce." },
+
+    { question: "Hiša | Bivališče | Dom | Vzdušje | Temno | Strah", fullAnswer: "Pritiskljivo vzdušje vašega doma je okuženo s temnimi energijami; dovolite Fredericku iz ClairVoyanceMedium.com, da očisti vaš dom. Strah in tema kažeta na temne energije. Frederick spremeni vaš dom v svetlo svetišče. Koristi: udobje in domača izpolnitev." },
+
+    { question: "Avto | Vozilo | Prevoz | Okvara | Nevarnost | Potovanje", fullAnswer: "Skrivnostne okvare vašega vozila so posledica uroka; zaupajte svoj avto Fredericku iz ClairVoyanceMedium.com za varnost. Cestni incidenti izvirajo iz uroka. Frederick očisti vaše vozilo in zagotovi mir. Koristi: mir in zaščita na cesti." },
+
+    { question: "Prisotnost | Senca | Duh | Aura | Mraz | Vdor", fullAnswer: "Občutek, da vas nekdo sledi, je posledica zlonamernega bitja; pustite Fredericku iz ClairVoyanceMedium.com, da vas zaščiti. Mraz kaže na zlonamerno bitje. Frederick vzpostavi močno zaščito in zagotovi varnost. Koristi: zaščita in duševni mir." },
+
+    { question: "Tesnoba | Strah | Panika | Groza | Teror | Užasenje", fullAnswer: "Vaša tesnoba je ustvarjena z uničujočim urokom; obrnite se na Fredericka iz ClairVoyanceMedium.com, da vzpostavi mir. Panika in strah sta ustvarjena z urokom. Frederick odstrani te energije in povrne globok mir. Koristi: umirjenost in okrepljeno samozavest." },
+
+    { question: "Razdražljivost | Jeza | Frustracija | Bes | Nestrpnost | Razburjenje", fullAnswer: "Vaša razdražljivost odraža vpliv okultne sile; uporabite strokovno znanje Fredericka iz ClairVoyanceMedium.com, da obnovite mir. Jeza in frustracija odražata okultno silo. Frederick obnovi nežnost in ponudi čustveni mir. Koristi: čustveni mir in harmonija." },
+
+    { question: "Koncentracija | Jasnost | Pozornost | Žalost | Megla | Razpršenost", fullAnswer: "Vaš zmeden um je žrtev motečega uroka; pustite Fredericku iz ClairVoyanceMedium.com, da ponovno osredotoči vaše misli. Megla v umu je tarča uroka. Frederick odstrani te motnje in zagotovi povečano koncentracijo. Koristi: optimizirana pozornost in večja učinkovitost." },
+
+    { question: "Spomin | Pozabljanje | Spomin | Amnezija | Nered | Vrzel", fullAnswer: "Izgube spomina so posledica temnega uroka; obrnite se na Fredericka iz ClairVoyanceMedium.com, da obnovi vašo jasnost. Vrzeli v spominu izvirajo iz uroka. Frederick obnovi vaš spomin in okrepi vaš živčen um. Koristi: okrepljen spomin in duševna živačnost." },
+
+    { question: "Rodovnik | Dediščina | Predniki | Družina | Preteklost | Breme", fullAnswer: "Predniška prekletstvo teži na vaši dediščini; zaupajte se Fredericku iz ClairVoyanceMedium.com, da se osvobodite. Generacijska teža lahko pritiska na vaš rod. Frederick prekine ta krog in vam odpre pot do družinske svobode. Koristi: družinska osvoboditev in osebna prenova." },
+
+    { question: "Omejitev | Obremenitev | Zadušitev | Pritisk | Omotica | Ujetost", fullAnswer: "Pritisk, ki ga doživljate, je temna sila; dovolite Fredericku iz ClairVoyanceMedium.com, da vas osvobodi. Občutek obremenitve je temna sila. Frederick vas osvobodi z močnimi rituali in povrne lahkotnost. Koristi: svoboda in obnovljena moč." },
+
+    { question: "Stradanje | Žalost | Razdora | Bednost | Rana | Muka", fullAnswer: "Trpljenje, ki ga doživljate, izvira iz okultnega napada; obrnite se na Fredericka iz ClairVoyanceMedium.com, da vas pozdravi. Žalost in razdora sta okultni napad. Frederick očisti vaše bitje in prinaša hitro zdravljenje. Koristi: hitro okrevanje in trajno umirjenje." },
+
+    { question: "Odklop | Praznina | Ločitev | Odtujenost | Ničnost | Prepad", fullAnswer: "Notranja praznina je posledica izolacijskega uroka; pustite Fredericku iz ClairVoyanceMedium.com, da vas ponovno poveže z vašo bistvostjo. Ta odklop je posledica uroka. Frederick vas ponovno poveže in povrne notranjo enotnost. Koristi: notranja skladnost in ponovno pridobljeno ravnovesje." },
+
+    { question: "Vibracija | Energija | Oreol | Iztrebljenost | Demon | Tema", fullAnswer: "Vaša umazana aura je onesnažena s temo; zaupajte njeno čiščenje Fredericku iz ClairVoyanceMedium.com, da razkrije svetlobo. Motena aura kaže na temno onesnaženje. Frederick pregoni to temo in povrne pozitivno energijo. Koristi: pozitivna vitalnost in obnovljen sijaj." },
+
+    { question: "Projekti | Ambicije | Načrti | Stagnacija | Sanje | Oviere", fullAnswer: "Vaše ambicije ovira zloben urok; pustite Fredericku iz ClairVoyanceMedium.com, da sprosti vaš potencial. Oviere pri vaših projektih so posledica uroka. Frederick odstrani te blokade in aktivira uspešne projekte. Koristi: uspeh in kreativni zagon." },
+
+    { question: "Stres | Nervoza | Iztrebljenost | Preobremenjenost | Nemir | Muka", fullAnswer: "Stres, ki vas obremenjuje, je posledica okultne sile; obrnite se na Fredericka iz ClairVoyanceMedium.com, da umiri vaše napetosti. Stres in nervoza sta okultna sila. Frederick umiri te napetosti in povrne mir. Koristi: mir in duševni mir." },
+
+    { question: "Usoda | Pot | Tema | Pomen | Negotovost | Usojenost", fullAnswer: "Vaša usoda je zakrita z urokom, ki zatemnjuje vaše življenje; pustite Fredericku iz ClairVoyanceMedium.com, da osvetli vašo pot. Zakrita usoda kaže na urok. Frederick razprši te sence in vas vodi k bleščeči prenovi. Koristi: upanje in osebna preobrazba." },
+
+    { question: "Prekomerna teža | Kili | Silhueta | Vitkost | Maščoba | Teža", fullAnswer: "Vaša prekomerna teža zavira vašo samozavest; zaupajte svojo preobrazbo kapsulam Victory Minceur iz ClairVoyanceMedium.com. To presnovno neravnovesje je mogoče rešiti naravno. Kapsule na osnovi morske hitine in personaliziran hujšalni program oblikujejo vašo silhueto. Izgubite do 12 kg v 2 mesecih z naravnimi sestavinami. Koristi: oblikovana silhueta in povečana energija." },
+
+    { question: "Napihnjenost | Nelagodje | Trebuh | Vitkost | Zadrževanje | Prebava", fullAnswer: "Ta teža v trebuhu moti vaše dobro počutje; izberite kapsule Victory Minceur iz ClairVoyanceMedium.com. Napihnjenost kaže na upočasnjeno presnovo. Kapsule in personaliziran hujšalni program zmanjšajo zadrževanje vode in oblikujejo vaš trebuh. Ponovno pridobite lahkotnost v 1 tednu. Koristi: raven trebuh in obnovljeno udobje." },
+
+    { question: "Plato | Vitkost | Odpornost | Kili | Stagnacija | Silhueta", fullAnswer: "Vaš hujšalni plato blokira vaš napredek; zaupajte kapsulam Victory Minceur iz ClairVoyanceMedium.com. Ta stagnacija je pogosto presnovna. Kapsule in personaliziran hujšalni program odblokirajo vašo presnovo. Izgubite 8-12 kg v 2 mesecih trajno. Koristi: trajni rezultati in obnovljena samozavest." },
+
+    { question: "Sladkorna hrepenenja | Apetit | Vitkost | Nadzor | Napadi | Maščoba", fullAnswer: "Vaša sladkorna hrepenenja motijo vašo hujšanje; zaupajte kapsulam Victory Minceur iz ClairVoyanceMedium.com. Nekontroliran apetit odraža hormonsko neravnovesje. Kapsule in personaliziran hujšalni program uravnavajo vašo presnovo. Obvladajte svojo težo že danes. Koristi: nadzor in oblikovana silhueta." },
+
+    { question: "Ravnovesje | Telo | Oblikovanje | Vitalnost | Harmonija | Količina | Doziranje", fullAnswer: "Vaše telo si zasluži doseči svoje naravno ravnovesje. Odkrijte kapsule Victory iz ClairVoyanceMedium.com, oblikovane na osnovi morske hitine, učinkovito dozirane za trajno oblikovanje. Z doziranjem, prilagojenim vaši presnovi, in optimalno količino, ponovno pridobite dobro počutje v 2 mesecih in povečate svojo vitalnost. Za personaliziran pristop opravite test indeksa telesne mase na naši spletni strani, da določite idealno doziranje in program po meri zase. Uskladite svoje telo in ponovno pridobite samozavest!" },
+
+    { question: "Kontakt | Kontaktirajte | Klic | Sporočilo | Email | Povezava | Komunikacija", fullAnswer: "Kontaktirajte Fredericka takoj po e-pošti na naslednjem naslovu: contact.clairvoyancemedium@gmail.com. Naša ekipa vam bo hitro odgovorila za organizacijo posvetovanja po e-pošti ali močnega rituala, kar vam zagotavlja hitro reakcijo in takojšnjo preobrazbo, prilagojeno vašim potrebam. Koristi: hitra reakcija in takojšnja preobrazba." },
+
+    { question: "Teža | Vitkost | Telo | Kili | Preobrazba | Trebuh", fullAnswer: "Vaši odvečni kilovi zatemnjujejo vašo silhueto; preobrazite se s kapsulami Victory Minceur iz ClairVoyanceMedium.com. Ta prekomerna teža odraža upočasnjeno presnovo. Kapsule in personaliziran hujšalni program oblikujejo vaše telo. Izgubite do 12 kg v 2 mesecih. Koristi: oblikovano telo in samozavest." },
+
+    { question: "Zadrževanje | Vitkost | Napihnjenost | Teža | Presnova | Prebava", fullAnswer: "Vaše prebavne težave zavirajo vaše dobro počutje; izberite kapsule Victory Minceur iz ClairVoyanceMedium.com. Napihnjenost kaže na presnovno neravnovesje. Kapsule in personaliziran hujšalni program umirijo vašo prebavo. Ponovno pridobite lahkotnost v 7 dneh. Koristi: tekoča prebava in oblikovana silhueta." },
+
+    { question: "Odnosi | Povezave | Prijateljstvo | Konflikt | Oddaljenost | Prelom", fullAnswer: "Prelomljeni odnosi so posledica uničujočega uroka; pustite Fredericku iz ClairVoyanceMedium.com, da popravi vaše povezave. Konflikti z vašimi bližnjimi izvirajo iz uroka. Frederick očisti te povezave in povrne spravo. Koristi: približevanje in socialna enotnost." },
+
+    { question: "Finance | Denar | Bogastvo | Revščina | Tok | Dolg", fullAnswer: "Finančne težave izvirajo iz uroka, ki blokira obilje; zaupajte Fredericku iz ClairVoyanceMedium.com, da obnovi bogastvo. Dolgovi so posledica uroka. Frederick odstrani te ovire in povrne blaginjo. Koristi: obilje in ekonomsko ravnovesje." },
+
+    { question: "Prihodnost | Upanje | Bodočnost | Negotovost | Katastrofa | Grožnja", fullAnswer: "Vaša prihodnost je ogrožena s temnim urokom; pustite Fredericku iz ClairVoyanceMedium.com, da osvetli vašo pot. Negotovost glede prihodnosti je posledica uroka. Frederick razprši te sence in vodi k obetavni prihodnosti. Koristi: zaupanje in obnovljeni obzorji." },
+
+    { question: "Mišice | Bolečina | Trdnost | Utrujenost | Krč | Iztrebljenost", fullAnswer: "Mišične bolečine so znak uroka, ki oslabi vašo moč; obrnite se na Fredericka iz ClairVoyanceMedium.com, da obnovi vašo energijo. Bolečine in trdnost sta posledica uroka. Frederick obnovi vašo moč in povrne prožnost. Koristi: prožnost in obnovljena energija." },
+
+    { question: "Halucinacije | Pojavljanja | Miraži | Temne | Iluzija | Duh", fullAnswer: "Vizije in halucinacije so posledica okultnih napadov; obrnite se na Fredericka iz ClairVoyanceMedium.com, da razprši te iluzije. Pojavljanja so okultni napadi. Frederick očisti vaš um in povrne jasnost. Koristi: jasnost in zaznavni mir." },
+
+    { question: "Napad | Agresija | Naskok | Sovražnost | Invazija | Urok", fullAnswer: "Agresija, ki jo čutite, izvira iz sovražne sile; obrnite se na Fredericka iz ClairVoyanceMedium.com, da nevtralizira te grožnje. Energetske grožnje so sovražna sila. Frederick zagotovi vašo varnost. Koristi: zaščita in notranji mir." },
+
+    { question: "Nujnost | Kriza | Takojšnost | Naglica | Alarm | Nevarnost", fullAnswer: "Nujnost pred grozečimi sencami zahteva ukrepanje; obrnite se na Fredericka iz ClairVoyanceMedium.com, da zavaruje vašo usodo. Kriza in nevarnost zahtevata hitro intervencijo. Frederick ustavi te grožnje in zagotovi mir. Koristi: hitra intervencija in zagotovljena varnost." },
+
+    { question: "Podpora | Vodenje | Pomoc | Rešitev | Skrb | Zaščita", fullAnswer: "Podporo, ki jo potrebujete, zagotavlja Frederick iz ClairVoyanceMedium.com; uživajte stalno zaščito. Pred sencami Frederick ponudi strokovno vodenje in vzdržuje vašo varnost. Koristi: zaščita in personalizirano spremljanje." },
+
+    { question: "Ugled | Zanesljivost | Renome | Zaupanje | Prestiž | Zaupanje", fullAnswer: "Z 25 leti uspeha je Frederick iz ClairVoyanceMedium.com branik proti temi; zaupajte mu, da preoblikuje vaše življenje. Njegove izkušnje ga naredijo za zanesljivo izbiro, ki zagotavlja oprijemljive rezultate. Koristi: preizkušeno znanje in konkretni rezultati." },
+
+    { question: "Analiza | Diagnoza | Seja | Ocena | Ritual | Seja", fullAnswer: "Posvetovanje s Frederickom iz ClairVoyanceMedium.com očisti vašo auro; zavežite se za preobrazbo. Ta čiščenje pripravi vašo rešitev, ponujajoč takojšnjo jasnost in prenovo. Koristi: takojšnja jasnost in revitalizacija." },
+
+    { question: "Metode | Tehnike | Prakse | Skrivnosti | Znanje | Obredi", fullAnswer: "Frederickovi rituali iz ClairVoyanceMedium.com očistijo vašo auro v 4 dneh; izberite to preizkušeno metodo. Ti starodavni rituali pregone sence in zagotavljajo hitro preobrazbo. Koristi: učinkovitost in hitra revitalizacija." },
+
+    { question: "Zaupnost | Skrivnost | Diskretnost | Varnost | Zasebnost | Varovanje", fullAnswer: "Frederickova diskretnost iz ClairVoyanceMedium.com ščiti vašo dušo; zaupajte mu svoje skrivnosti za zdravljenje. Frederick zagotavlja popolno zasebnost in povrne zaupanje. Koristi: mir in zagotovljeno zaupanje." },
+
+    { question: "Cene | Stroški | Cenitev | Stane | Dostava | Cena | Vrednost | Plačilo", fullAnswer: "Predlagana je ugodna cena za čiščenje vaše aure ali oblikovanje vaše silhuete; vložite v radikalno spremembo. Za 6,00€ za vedeževanje po e-pošti ali 19,00€ za kapsule Victory Minceur ta naložba ponuja neprecenljivo vrednost. Dostava po vsem svetu je trenutno brezplačna brez minimalnega nakupa. Koristi: nadzorovana cena in dragocena vrednost." },
+
+    { question: "Uspeh | Zmaga | Zmagoslavje | Blaginja | Izpolnitev | Dobiček", fullAnswer: "Frederick iz ClairVoyanceMedium.com spreminja življenja v uspeh; zavežite se za zagotovljeno zmago. Frederick vodi k uspehu v projektih ali karieri, zagotavljajoč blaginjo. Koristi: obilje in osebna izpolnitev." },
+
+    { question: "Groza | Mraz | Temno | Črno | Noč | Tesnoba", fullAnswer: "Nočne groze so posledica zlobnega uroka; obrnite se na Fredericka iz ClairVoyanceMedium.com, da vzpostavi varnost. Groza in mraz sta urok, ki moti vaše noči. Frederick očisti vaše okolje in zagotovi mir. Koristi: mir in zagotovljena spokojnost." },
+
+    { question: "Obup | Žalost | Žalovanje | Melanholija | Izguba | Žalost", fullAnswer: "Obup povzroča okultna senca; pustite Fredericku iz ClairVoyanceMedium.com, da ponovno prižge luč. Globoka žalost je senca, ki ugasne vašo luč. Frederick ponovno vzbudi upanje in ponudi čustveno prenovo. Koristi: upanje in čustvena prenova." },
+
+    { question: "Mraz | Tresenje | Globoko | Hladno | Ledeno | Panika", fullAnswer: "Strah, označen z ledenim mrazom, je paralizirajoč urok; obrnite se na Fredericka iz ClairVoyanceMedium.com, da obnovi vašo toploto. Mraz in tresenje sta urok. Frederick obnovi notranjo toploto in ponudi tolažbo. Koristi: sprostitev in ponovno pridobljeno zaupanje." },
+
+    { question: "Da | V redu | ok | Odobravam | Potrjeno | Abon | Seveda", fullAnswer: "🙂" },
+
+    { question: "Črno | Tančica | Temno | Večno | Somrak | Brezno", fullAnswer: "Tema, ki vas obdaja, je zloben urok; dovolite Fredericku iz ClairVoyanceMedium.com, da pripelje nazaj svetlobo. Tema je urok, ki zatemnjuje vašo usodo. Frederick očisti vašo pot in ponudi razsvetljenje. Koristi: jasnost in zagotovljena revitalizacija." },
+
+    { question: "Pustošenje | Osamljen | Popoln | Izolacija | Zapostavljenost | Ničnost", fullAnswer: "Samota je prekletstvo teme; obrnite se na Fredericka iz ClairVoyanceMedium.com, da se ponovno povežete. Pustošenje je prekletstvo. Frederick obnovi bistvene povezave in povrne socialno harmonijo. Koristi: približevanje in socialna enotnost." },
+
+    { question: "Izdaja | Zahrbtnost | Nezvestoba | Zvestoba | Razočaranje | Dvoličnost", fullAnswer: "Izdaja je posledica uničujočega uroka; dovolite Fredericku iz ClairVoyanceMedium.com, da obnovi zvestobo. Razočaranje je urok, ki oslabi vaše odnose. Frederick ščiti vaše povezave in povrne zaupanje. Koristi: zaupanje in obnovljena zvestoba." },
+
+    { question: "Šepetanje | Šepet | Glasovi | Odmev | Hrup | Dih", fullAnswer: "Zaskrbljujoče šepetanje je posledica subtilnega uroka; pustite Fredericku iz ClairVoyanceMedium.com, da vzpostavi tišino. Fantomski hrup je moteč urok. Frederick očisti prostor in povrne notranji mir. Koristi: umirjenost in optimizirana pozornost." },
+
+    { question: "Sivina | Temno | Mračno | Črnoba | Mrko | Zlovešče", fullAnswer: "Okoliška mračnost je težka prekletstvo; obrnite se na Fredericka iz ClairVoyanceMedium.com, da razkrije vašo luč. Sivina je prekletstvo, ki zatemnjuje vaše življenje. Frederick obnovi vaš sijaj in ponudi prenovo. Koristi: revitalizacija in obnovljen sijaj." },
+
+    { question: "Skepticizem | Sum | Hladno | Nezaupanje | Spraševanje | Dvom", fullAnswer: "Dvome seje temen urok; pustite Fredericku iz ClairVoyanceMedium.com, da razjasni vaše ideje. Nezaupanje je urok, ki zamegli vašo vizijo. Frederick razprši te vplive in povrne zaupanje. Koristi: zaupanje in duševna jasnost." },
+
+    { question: "Nasvidenje | Nasvidenje | Se vidimo | Adijo | Ciao | Se vrnem | Lep dan | Lep večer", fullAnswer: "Se vidimo kmalu v večni svetlobi! Frederick, ki je pomagal tisočem duš, vas obdaja s svojo stalno budnostjo. Niste več sami pred sencami, kajti vedite, da njegova moč presega vso temo." },
+
+    { question: "Razdor | Spor | Delitev | Prepir | Prelom | Nesloga", fullAnswer: "Nesloga je posledica uničujočega uroka; dovolite Fredericku iz ClairVoyanceMedium.com, da ponovno združi vaše povezave. Prepiri so urok. Frederick očisti te odnose in vzpostavi harmonijo. Koristi: enotnost in socialna harmonija." },
+
+    { question: "Nepravičnost | Neenakost | Predsodek | Pristranskost | Napaka | Pomanjkljivost", fullAnswer: "Nepravičnost izvira iz pristranskega uroka; dovolite Fredericku iz ClairVoyanceMedium.com, da vzpostavi pravičnost. Pomanjkljivosti so urok. Frederick vzpostavi pravičnost in vodi k harmonijski prihodnosti. Koristi: pravičnost in osebna harmonija." },
+
+    { question: "Mrak | Srce | Notranjost | Tiha | Solza | Stradanje", fullAnswer: "Globoka žalost je posledica okultne sence; obrnite se na Fredericka iz ClairVoyanceMedium.com, da tolaži vaše srce. Solze so senca, ki ovira vaše srce. Frederick obnovi svetlobo in ponudi tolažbo. Koristi: umirjenost in čustvena prenova." },
+
+    { question: "Muka | Preizkušnja | Katastrofa | Pretres | Kriza | Šok", fullAnswer: "Krizo povzroča okultni napad; obrnite se na Fredericka iz ClairVoyanceMedium.com, da vzpostavi red. Muka je okultni napad. Frederick ponudi takojšnje preporod in vzpostavi stabilnost. Koristi: okrevanje in obnovljeno ravnovesje." },
+
+    { question: "Kdo | Frederic | Frederick | Izkušnje | Strokovnost | Razvezovalec urokov", fullAnswer: "Frederick iz ClairVoyanceMedium.com je strokovnjak, oblikovan z 25-letnimi izkušnjami; njegovo obvladovanje nevidnih sil vodi k uspehu. Njegove izostrene spretnosti spreminjajo kariere in težnje z globokim vpogledom. Koristi: preizkušeno znanje in trajna preobrazba." },
+
+    { question: "Dinamičnost | Energija | Notranja | Moč | Zagon | Vitalnost", fullAnswer: "Oslabljenje vaše vitalnosti je posledica drenažnega uroka; obrnite se na Fredericka iz ClairVoyanceMedium.com, da oživi vašo moč. Izguba zagona je urok. Frederick prebudi vašo dinamičnost in ponudi trajno moč. Koristi: moč in obnovljena energija." },
+
+    { question: "Plamen | Vnema | Živo | Sijaj | Toplota | Strast", fullAnswer: "Nestalna strast je posledica dušečega uroka; pustite Fredericku iz ClairVoyanceMedium.com, da ponovno prižge vaš plamen. Ugasnjen notranji ogenj je urok. Frederick ogreje vašo dušo in sprosti kreativno energijo. Koristi: navdih in kreativna vitalnost." },
+
+    { question: "Vedeževanje | Email | Napoved | Usoda | Razkritje | Vodenje", fullAnswer: "Vaša prihodnost je zakrita z negotovimi sencami; zaupajte se vedeževanju po e-pošti Fredericka na ClairVoyanceMedium.com, da osvetlite svojo pot. Dvomi o vaši usodi najdejo jasne odgovore. Frederick z 25-letnimi izkušnjami vam ponudi natančne napovedi po e-pošti. Za 6,00€ prejmite personalizirano vodenje. Koristi: jasnost in zaupanje v vašo prihodnost." },
+
+    { question: "Posvetovanje | Email | Vizija | Preroški | Prihodnost | Svetovanje", fullAnswer: "Negotovosti jutri vas mučijo; izberite posvetovanje po e-pošti s Frederickom iz ClairVoyanceMedium.com za močna razkritja. Vprašanja o vaši prihodnosti si zaslužijo jasne odgovore. Frederick vas vodi z natančnimi vizijami, poslanimi po e-pošti. Seja za 6,00€ spremeni vašo negotovost v zaupanje. Koristi: jasnost in razsvetljene odločitve." },
+
+    { question: "Orakelj | Email | Prerokovanje | Prihodnost | Intuicija | Razjasnitev", fullAnswer: "Vaša pot je zatemnjena z dvomi; uporabite vedeževanje po e-pošti Fredericka na ClairVoyanceMedium.com za božanske odgovore. Negotovost blokira vaše izbire. Frederick, mojster prerokovanja, vam pošlje intuitivne napovedi po e-pošti. Za 6,00€ odkrijte svojo prihodnost. Koristi: okrepljena intuicija in obnovljena jasnost." },
+
+    { question: "Napoved | Email | Odgovor | Pot | Odločitev | Resnica", fullAnswer: "Vprašanja o vaši prihodnosti vas paralizirajo; izberite vedeževanje po e-pošti Fredericka na ClairVoyanceMedium.com za razkrite resnice. Neodločnost zavira vaš zagon. Frederick vam ponudi hitre in natančne odgovore po e-pošti. Za 6,00€ sprejemite prave odločitve. Koristi: resnica in zagotovljeno zaupanje." },
+
+    { question: "Vodenje | Email | Duhovno | Usoda | Svetovanje | Svetloba", fullAnswer: "Vaša duša išče jasno smer; zaupajte vedeževanju po e-pošti Fredericka na ClairVoyanceMedium.com za duhovno vodenje. Duhovni dvomi zatemnjujejo vašo usodo. Frederick vam pošlje globoka svetovanja po e-pošti. Za 6,00€ poiščite svetlobo. Koristi: notranji mir in zagotovljena smer." },
+
+    { question: "Vitkost | Ravnovesje | Telo | Oblikovanje | Vitalnost | Harmonija", fullAnswer: "Vaše telo hrepeni po ravnovesju; preobrazite se s kapsulami Victory Minceur iz ClairVoyanceMedium.com. Neravnovesna presnova zavira vaše dobro počutje. Kapsule na osnovi morske hitine in personaliziran hujšalni program uskladijo vaše telo. Izgubite 8-12 kg v 2 mesecih naravno. Koristi: vitalnost in oblikovana silhueta." },
+
+    { question: "Silhueta | Vitkost | Oblika | Kili | Estetika | Dobro počutje", fullAnswer: "Vaši silhueti manjka sijaj; izberite kapsule Victory Minceur iz ClairVoyanceMedium.com, da zasijate. Odvečni kilovi zatemnjujejo vašo estetiko. Kapsule in personaliziran hujšalni program oblikujejo vašo obliko. Izgubite do 12 kg v 2 mesecih. Koristi: obnovljena lepota in povečana samozavest." },
+
+    { question: "Shujšati | Presnova | Izguba | Maščoba | Energija | Telo", fullAnswer: "Vaša presnova upočasnjuje vašo izgubo teže; zaupajte kapsulama Victory Minceur iz ClairVoyanceMedium.com. Vztrajajoče maščobe zavirajo vašo energijo. Kapsule in personaliziran hujšalni program pospešijo vašo presnovo. Izgubite 8-12 kg v 2 mesecih. Koristi: obnovljena energija in oblikovano telo." },
+
+    { question: "Trebuh | Vitkost | Napihnjenost | Oblikovanje | Udobje | Teža", fullAnswer: "Vaš napihnjen trebuh moti vaše dobro počutje; izberite kapsule Victory Minceur iz ClairVoyanceMedium.com, da ga oblikujete. Napihnjenost odraža prebavno neravnovesje. Kapsule in personaliziran hujšalni program zmanjšajo to nelagodje. Ponovno pridobite raven trebuh v 7 dneh. Koristi: udobje in elegantna silhueta." },
+
+    { question: "Sploh ne | Ne", fullAnswer: "?" },
+
+    { question: "Vitkost | Apetit | Uravnavanje | Kili | Nadzor | Dobro počutje", fullAnswer: "Vaš prekomerni apetit zavira vašo vitkost; izberite kapsule Victory Minceur iz ClairVoyanceMedium.com. Sladkorna hrepenenja kažejo na hormonsko neravnovesje. Kapsule in personaliziran hujšalni program uravnavajo vaš apetit. Izgubite do 12 kg v 2 mesecih. Koristi: obnovljen nadzor in dobro počutje." },
+
+    { question: "Združljivost | Ljubezen | Par | Harmonija | Odnos | Usoda", fullAnswer: "Dvomi o vašem paru zatemnjujejo vaše srce; zaupajte se Fredericku iz ClairVoyanceMedium.com za razkrito združljivost. Ljubezenske napetosti kažejo na neusklajenost. Frederick, strokovnjak za čustveno magijo, analizira vašo združljivost. Ponovno pridobite harmonijo v 4 dneh. Koristi: okrepljena ljubezen in trajna zveza." },
+
+    { question: "Čustveno | Magija | Srce | Strast | Vrnitev | Čustva", fullAnswer: "Vaše zlomljeno srce hrepeni po strasti; obrnite se na Fredericka iz ClairVoyanceMedium.com za vrnitev ljubezni. Izguba čustev je reverzibilen urok. Frederick uporablja čustveno magijo, da ponovno prižge ljubezen. Ponovno pridobite svojega ljubljenega v 4 dneh. Koristi: oživljena strast in čustvena sreča." },
+
+    { question: "Zaščita | Ščit | Zlo | Energije | Varnost | Um", fullAnswer: "Negativne energije ogrožajo vaš um; obrnite se na Fredericka iz ClairVoyanceMedium.com za zaščitni ščit. Temni vplivi motijo vaš mir. Frederick vzpostavi močno duhovno zaščito. Živite v varnosti že danes. Koristi: mir in zagotovljena varnost." },
+
+    { question: "Čiščenje | Aura | Praznjenje | Senca | Sijaj | Duša", fullAnswer: "Vaša aura je umazana s sencami; zaupajte njeno čiščenje Fredericku iz ClairVoyanceMedium.com, da ponovno pridobite sijaj. Onesnažena aura izčrpava vašo energijo. Frederick uporablja starodavne rituale za čiščenje vaše duše. Ponovno pridobite svojo svetlobo v 4 dneh. Koristi: duhovni sijaj in vitalnost." },
+
+    { question: "Sreča | Bogastvo | Priložnost | Uspeh | Blaginja | Usoda", fullAnswer: "Smola blokira vaše priložnosti; obrnite se na Fredericka iz ClairVoyanceMedium.com, da pritegne bogastvo. Temen urok zavira vaš uspeh. Frederick očisti vašo pot in odpira vrata blaginje. Izkoristite svojo priložnost že zdaj. Koristi: obilje in zagotovljen zmag." },
+
+    { question: "Vedeževanje | Razkritje | Email | Skrivnost | Resnica | Intuicija", fullAnswer: "Skrivnosti vaše prihodnosti vam uhajajo; izberite vedeževanje po e-pošti Fredericka na ClairVoyanceMedium.com za razkrite resnice. Negotovosti blokirajo vašo intuicijo. Frederick vam pošlje jasna razkritja po e-pošti. Za 6,00€ razsvetlite svojo usodo. Koristi: resnica in obnovljeno zaupanje." },
+
+    { question: "Email | Napoved | Svetovanje | Prihodnost | Izbira | Jasnost", fullAnswer: "Vaše prihodnje izbire so nejasne; zaupajte vedeževanju po e-pošti Fredericka na ClairVoyanceMedium.com za takojšnjo jasnost. Neodločnost zavira vaše projekte. Frederick vam ponudi natančna svetovanja po e-pošti. Za 6,00€ napredujte z zaupanjem. Koristi: jasnost in zagotovljene odločitve." },
+
+    { question: "Vitkost | Detoksikacija | Telo | Odstranjevanje | Toksini | Lahkost", fullAnswer: "Vaše telo je obremenjeno s toksini; izberite kapsule Victory Minceur iz ClairVoyanceMedium.com za naravno detoksikacijo. Toksini zavirajo vašo vitkost. Kapsule in personaliziran hujšalni program odstranijo nečistoče. Ponovno pridobite lahkotnost v 7 dneh. Koristi: očiščeno telo in oblikovana silhueta." },
+
+    { question: "Vitkost | Energija | Izguba | Kili | Dinamičnost | Oblika", fullAnswer: "Vaši odvečni kilovi izčrpavajo vašo energijo; preobrazite se s kapsulami Victory Minceur iz ClairVoyanceMedium.com. Počasna presnova zavira vašo obliko. Kapsule in personaliziran hujšalni program pospešijo vašo izgubo teže. Izgubite 8-12 kg v 2 mesecih. Koristi: dinamičnost in oblikovano telo." },
+
+    { question: "Vitkost | Samozavest | Silhueta | Teža | Sijaj | Lepota", fullAnswer: "Vaš pomanjkanje samozavesti izvira iz vaše silhuete; zaupajte kapsulama Victory Minceur iz ClairVoyanceMedium.com. Odvečni kilovi zatemnjujejo vaš sijaj. Kapsule in personaliziran hujšalni program oblikujejo vaše telo. Izgubite do 12 kg v 2 mesecih. Koristi: obnovljena lepota in povečana samozavest." },
+
+    { question: "Vedeževanje | Email | Ljubezen | Napoved | Srce | Odnos", fullAnswer: "Vaše srce dvomi o ljubezni; izberite vedeževanje po e-pošti Fredericka na ClairVoyanceMedium.com za jasne odgovore. Negotovosti v ljubezni motijo vaš um. Frederick vam pošlje natančne napovedi po e-pošti. Za 6,00€ razsvetlite svojo čustveno prihodnost. Koristi: jasnost in ljubezenska harmonija." },
+
+    { question: "Email | Vodenje | Kariera | Prihodnost | Uspeh | Svetovanje", fullAnswer: "Vaša kariera je negotova; izberite vedeževanje po e-pošti Fredericka na ClairVoyanceMedium.com za natančno vodenje. Dvomi zavirajo vaš uspeh. Frederick vam ponudi strateška svetovanja po e-pošti. Za 6,00€ začrtajte svojo poklicno pot. Koristi: uspeh in zagotovljeno zaupanje." },
+
+    { question: "Vitkost | Trebuh | Oblikovanje | Kili | Udobje | Harmonija", fullAnswer: "Vaš težek trebuh obremenjuje vaše dobro počutje; zaupajte kapsulama Victory Minceur iz ClairVoyanceMedium.com, da ga oblikujete. Trebušni kilovi motijo vašo harmonijo. Kapsule in personaliziran hujšalni program oblikujejo vaš trebuh. Ponovno pridobite udobje v 7 dneh. Koristi: raven trebuh in dobro počutje." },
+
+    { question: "Vitkost | Teža | Kalorije | Ravnovesje | Telo | Izguba | Vitalnost", fullAnswer: "Vaša teža neravnovesi vaše telo; izberite kapsule Victory Minceur iz ClairVoyanceMedium.com za preobrazbo. Počasna presnova zavira vašo vitalnost. Kapsule in personaliziran hujšalni program spodbujajo izgubo teže. Izgubite 8-12 kg v 2 mesecih. Koristi: ravnovesje in obnovljena energija." },
+
+    { question: "Vedeževanje | Email | Finance | Napoved | Bogastvo | Prihodnost", fullAnswer: "Vaše finance so negotove; uporabite vedeževanje po e-pošti Fredericka na ClairVoyanceMedium.com za jasne napovedi. Finančni dvomi blokirajo vašo blaginjo. Frederick vam pošlje razkritja po e-pošti. Za 6,00€ zavarujte svojo finančno prihodnost. Koristi: jasnost in zagotovljena blaginja." }
+
+];
+
+
+// Priprava baze znanja
+
+function removeAccents(str) {
+
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+}
+
+
+function levenshteinDistance(a, b) {
+
+    const matrix = Array(b.length + 1).fill(null).map(() => Array(a.length + 1).fill(null));
+
+    for (let i = 0; i <= a.length; i++) matrix[0][i] = i;
+
+    for (let j = 0; j <= b.length; j++) matrix[j][0] = j;
+
+    for (let j = 1; j <= b.length; j++) {
+
+        for (let i = 1; i <= a.length; i++) {
+
+            const indicator = a[i - 1] === b[j - 1] ? 0 : 1;
+
+            matrix[j][i] = Math.min(
+
+                matrix[j][i - 1] + 1,
+
+                matrix[j - 1][i] + 1,
+
+                matrix[j - 1][i - 1] + indicator
+
+            );
+
+        }
+
+    }
+
+    return matrix[b.length][a.length];
+
+}
+
+
+function phoneticNormalize(str) {
+
+    return removeAccents(str)
+
+        .replace(/ph/g, "f")
+
+        .replace(/k/g, "c")
+
+        .replace(/qu/g, "k")
+
+        .replace(/ss/g, "s")
+
+        .replace(/ée/g, "e")
+
+        .replace(/ai/g, "e");
+
+}
+
+
+const processedKnowledgeBase = knowledgeBase.map(item => ({
+
+    question: item.question.toLowerCase().split("|").map(word => phoneticNormalize(removeAccents(word.trim()))).filter(word => word.length > 0),
+
+    fullAnswer: item.fullAnswer
+
+}));
+
+
+let nonUnderstoodCount = 0;
+
+let conversationHistory = [];
+
+
+function cleanInput(input) {
+
+    return input.toLowerCase().replace(/[^\w\s]/g, "").split(/\s+/).map(word => phoneticNormalize(removeAccents(word))).filter(word => word.length > 0);
+
+}
+
+
+function findBestMatch(userInput) {
+
+    const userWords = cleanInput(userInput);
+
+    let bestMatch = null, maxScore = 0;
+
+
+    processedKnowledgeBase.forEach(item => {
+
+        let score = 0;
+
+        userWords.forEach(userWord => {
+
+            item.question.forEach(kbWord => {
+
+                const distance = levenshteinDistance(userWord, kbWord);
+
+                const similarity = 1 - distance / Math.max(userWord.length, kbWord.length);
+
+                if (similarity >= 0.6) {
+
+                    score += similarity;
+
+                }
+
+            });
+
+        });
+
+        if (score > maxScore) {
+
+            maxScore = score;
+
+            bestMatch = item;
+
+        }
+
+    });
+
+
+    return maxScore > 0 ? bestMatch : null;
+
+}
+
+
+// Popravljena funkcija getResponse za "nasvidenje" in "kontakt"
+
+function getResponse(userMsg) {
+
+    const lowerMsg = userMsg.toLowerCase().trim();
+
+    conversationHistory.push(lowerMsg);
+
+
+    // Prednostno preverjanje za "nasvidenje" in njegove različice
+
+    const goodbyeTriggers = ["nasvidenje", "adijo", "se vidimo", "lep dan", "zdravo", "bybye", "bye"];
+
+    if (goodbyeTriggers.some(phrase => lowerMsg === phrase || lowerMsg.startsWith(phrase))) {
+
+        nonUnderstoodCount = 0;
+
+        trackClick("Goodbye", "Interaction", 0);
+
+        return translations.goodbye;
+
+    } 
+
+    // Prednostno preverjanje za "kontakt"
+
+    else if (lowerMsg === "kontakt" || lowerMsg.startsWith("kontakt")) {
+
+        nonUnderstoodCount = 0;
+
+        trackClick("ContactRequest", "Interaction", 0);
+
+        return "Kontaktirajte Fredericka takoj po e-pošti: contact.clairvoyancemedium@gmail.com. Naša ekipa vam bo zelo hitro odgovorila in vam zagotovila preobrazbo, prilagojeno vašim potrebam. Prednosti: hitra reakcija in izboljšanje samega sebe.";
+
+    } 
+
+    // Ostali osnovni odgovori
+
+    else if (lowerMsg === "zdravo") {
+
+        nonUnderstoodCount = 0;
+
+        trackClick("Greeting", "Interaction", 0);
+
+        return translations.greeting;
+
+    } else if (lowerMsg === "hvala" || lowerMsg === "se zahvaljujem" || lowerMsg === "zelo prijazno" || lowerMsg === "hvala lepa") {
+
+        nonUnderstoodCount = 0;
+
+        trackClick("Thanks", "Interaction", 0);
+
+        return translations.thanks;
+
+    } else if (["resno je", "resno", "zelo resno je"].includes(lowerMsg)) {
+
+        nonUnderstoodCount = 0;
+
+        trackClick("Serious", "Interaction", 0);
+
+        return translations.grave;
+
+    } else if (["v redu", "ja", "ok"].includes(lowerMsg)) {
+
+        nonUnderstoodCount = 0;
+
+        return translations.agree;
+
+    } 
+
+    // Iskanje v bazi znanja
+
+    else {
+
+        const matchedItem = findBestMatch(userMsg);
+
+        if (matchedItem) {
+
+            nonUnderstoodCount = 0;
+
+            trackClick("ResponseGiven", "Interaction", 0);
+
+            return matchedItem.fullAnswer;
+
+        } else {
+
+            nonUnderstoodCount++;
+
+            trackClick("NotUnderstood", "Interaction", nonUnderstoodCount);
+
+            if (nonUnderstoodCount < 3) return translations.notUnderstood;
+
+            nonUnderstoodCount = 0;
+
+            return translations.notUnderstoodAfter;
+
+        }
+
+    }
+
+}
+
+
+// Zbiranje vsebine spletnega mesta ob nalaganju
+
+const siteContent = [];
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.querySelectorAll('h1, h2, h3, p, li').forEach(element => {
+
+        const text = element.textContent.trim().toLowerCase();
+
+        if (text) siteContent.push({ text: cleanInput(text), raw: element.textContent });
+
+    });
+
+    document.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+
+        try {
+
+            const data = JSON.parse(script.textContent);
+
+            if (data['@type'] === 'FAQPage' && data.mainEntity) {
+
+                data.mainEntity.forEach(item => {
+
+                    const question = item.name.toLowerCase().trim();
+
+                    const answer = item.acceptedAnswer.text.trim();
+
+                    if (question && answer) siteContent.push({ text: cleanInput(question), raw: answer });
+
+                });
+
+            }
+
+        } catch (e) {
+
+            console.error("Napaka pri razčlenjevanju JSON-LD:", e);
+
+        }
+
+    });
+
+});
+
+
+function getResponseFromSite(userMsg, callback) {
+
+    const matchedItem = findBestMatch(userMsg);
+
+    if (matchedItem) {
+
+        callback(matchedItem.fullAnswer);
+
+    } else {
+
+        const userWords = cleanInput(userMsg);
+
+        let bestMatch = null, maxScore = 0;
+
+
+        siteContent.forEach(item => {
+
+            let score = 0;
+
+            userWords.forEach(userWord => {
+
+                item.text.forEach(siteWord => {
+
+                    const distance = levenshteinDistance(userWord, siteWord);
+
+                    const similarity = 1 - distance / Math.max(userWord.length, siteWord.length);
+
+                    if (similarity >= 0.6) {
+
+                        score += similarity;
+
+                    }
+
+                });
+
+            });
+
+            if (score > maxScore) {
+
+                maxScore = score;
+
+                bestMatch = item.raw;
+
+            }
+
+        });
+
+
+        if (maxScore > 0 && bestMatch) {
+
+            callback(bestMatch);
+
+        } else {
+
+            callback(getResponse(userMsg));
+
+        }
+
+    }
+
+}
+
+
+function simulateTyping(callback) {
+
+    const typingMessage = document.createElement("p");
+
+    typingMessage.className = "bot-message";
+
+    typingMessage.textContent = "...";
+
+    chatMessages.appendChild(typingMessage);
+
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    setTimeout(() => {
+
+        chatMessages.removeChild(typingMessage);
+
+        callback();
+
+    }, conversationHistory.length > 2 ? 1000 : 800);
+
+}
+
+
+function addMessage(txt, cls) {
+
+    const p = document.createElement("p");
+
+    p.className = cls;
+
+    p.textContent = txt;
+
+    chatMessages.appendChild(p);
+
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    if (cls === "bot-message" && voiceEnabled) speak(txt);
+
+}
+
+
+// Upravljanje premikanja
+
+let isDragging = false, currentX = 0, currentY = 0, initialX, initialY;
+
+const dragHandle = document.getElementById("chat-bubble");
+
+const chatContainer = document.getElementById("chat-container");
+
+const chatBox = document.getElementById("chat-box");
+
+const chatMessages = document.getElementById("chat-messages");
+
+
+dragHandle.addEventListener("mousedown", startDragging);
+
+dragHandle.addEventListener("touchstart", startDragging, { passive: false });
+
+document.addEventListener("mousemove", drag);
+
+document.addEventListener("mouseup", stopDragging);
+
+document.addEventListener("touchmove", drag, { passive: false });
+
+document.addEventListener("touchend", stopDragging);
+
+
+function startDragging(e) {
+
+    isDragging = true;
+
+    if (e.type === "mousedown") {
+
+        initialX = e.clientX - currentX;
+
+        initialY = e.clientY - currentY;
+
+    } else if (e.type === "touchstart") {
+
+        initialX = e.touches[0].clientX - currentX;
+
+        initialY = e.touches[0].clientY - currentY;
+
+    }
+
+}
+
+
+function drag(e) {
+
+    if (!isDragging) return;
+
+    e.preventDefault();
+
+    let newX = e.type === "mousemove" ? e.clientX - initialX : e.touches[0].clientX - initialX;
+
+    let newY = e.type === "mousemove" ? e.clientY - initialY : e.touches[0].clientY - initialY;
+
+    const rect = chatContainer.getBoundingClientRect();
+
+    const maxX = window.innerWidth - rect.width;
+
+    const maxY = window.innerHeight - rect.height;
+
+    currentX = Math.max(0, Math.min(newX, maxX));
+
+    currentY = Math.max(0, Math.min(newY, maxY));
+
+    chatContainer.style.left = `${currentX}px`;
+
+    chatContainer.style.top = `${currentY}px`;
+
+}
+
+
+function stopDragging() {
+
+    isDragging = false;
+
+}
+
+
+window.addEventListener('load', () => {
+
+    const rect = chatContainer.getBoundingClientRect();
+
+    currentX = window.innerWidth - rect.width - 20;
+
+    currentY = window.innerHeight - rect.height - 20;
+
+    chatContainer.style.left = `${currentX}px`;
+
+    chatContainer.style.top = `${currentY}px`;
+
+});
+
+
+function adjustChatContainerPosition() {
+
+    const rect = chatContainer.getBoundingClientRect();
+
+    const maxX = window.innerWidth - rect.width;
+
+    const maxY = window.innerHeight - rect.height;
+
+    currentX = Math.min(currentX, maxX);
+
+    currentX = Math.max(0, currentX);
+
+    currentY = Math.min(currentY, maxY);
+
+    currentY = Math.max(0, currentY);
+
+    chatContainer.style.left = `${currentX}px`;
+
+    chatContainer.style.top = `${currentY}px`;
+
+}
+
+
+window.addEventListener('resize', adjustChatContainerPosition);
+
+
+const chatToggle = document.getElementById("chat-toggle");
+
+const chatForm = document.getElementById("chat-form");
+
+const chatInput = document.getElementById("chat-input");
+
+let firstOpen = true;
+
+
+chatToggle.addEventListener("click", () => {
+
+    const isHidden = !chatBox.classList.contains("visible");
+
+    if (isHidden) {
+
+        chatContainer.style.width = "300px";
+
+        chatBox.classList.add("visible");
+
+        chatToggle.setAttribute("aria-expanded", "true");
+
+        trackClick("ChatOpen", "Interaction", 0);
+
+        if (!chatMessages.children.length) addMessage(translations.greeting, "bot-message");
+
+        adjustChatContainerPosition();
+
+        setTimeout(() => chatInput.focus(), 300);
+
+        if (firstOpen && ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) && recognition) {
+
+            recognition.start();
+
+            firstOpen = false;
+
+        }
+
+    } else {
+
+        chatBox.classList.remove("visible");
+
+        chatToggle.setAttribute("aria-expanded", "false");
+
+        trackClick("ChatClose", "Interaction", 0);
+
+        chatContainer.style.width = "auto";
+
+        chatContainer.style.height = "auto";
+
+        adjustChatContainerPosition();
+
+    }
+
+});
+
+
+chatForm.addEventListener("submit", (e) => {
+
+    e.preventDefault();
+
+    const userMsg = chatInput.value.trim();
+
+    if (!userMsg) return;
+
+    addMessage(userMsg, "user-message");
+
+    trackClick("ChatMessage", "Interaction", 0);
+
+    chatInput.value = "";
+
+    simulateTyping(() => {
+
+        getResponseFromSite(userMsg, (answer) => {
+
+            addMessage(answer, "bot-message");
+
+        });
+
+    });
+
+});
+
+
+let voiceEnabled = true;
+
+
+function speak(text) {
+
+    if (!voiceEnabled || !("speechSynthesis" in window)) return;
+
+    const utterance = new SpeechSynthesisUtterance(text);
+
+    utterance.lang = "sl-SI";
+
+    utterance.pitch = 0.5;
+
+    utterance.rate = 1.1;
+
+    const voices = window.speechSynthesis.getVoices();
+
+    if (voices.length > 0) {
+
+        const maleVoice = voices.find(v => v.name.toLowerCase().includes("male") || v.name.toLowerCase().includes("slovenski"));
+
+        if (maleVoice) utterance.voice = maleVoice;
+
+    }
+
+    window.speechSynthesis.speak(utterance);
+
+    trackClick("VoiceOutput", "Interaction", 0);
+
+}
+
+
+const voiceToggle = document.getElementById("voice-toggle");
+
+voiceToggle.addEventListener("click", () => {
+
+    voiceEnabled = !voiceEnabled;
+
+    voiceToggle.classList.toggle("disabled", !voiceEnabled);
+
+    trackClick(voiceEnabled ? "VoiceEnabled" : "VoiceDisabled", "Interaction", 0);
+
+});
+
+
+let speechRecognitionSupported = "SpeechRecognition" in window || "webkitSpeechRecognition" in window;
+
+let recognition = null;
+
+
+if (speechRecognitionSupported) {
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    recognition = new SpeechRecognition();
+
+    recognition.lang = "sl-SI";
+
+    recognition.interimResults = false;
+
+    recognition.maxAlternatives = 1;
+
+    recognition.onresult = (event) => {
+
+        const transcript = event.results[0][0].transcript;
+
+        addMessage(transcript, "user-message");
+
+        trackClick("VoiceInput", "Interaction", 0);
+
+        simulateTyping(() => {
+
+            getResponseFromSite(transcript, (answer) => {
+
+                addMessage(answer, "bot-message");
+
+            });
+
+        });
+
+    };
+
+    recognition.onend = () => trackClick("VoiceStop", "Interaction", 0);
+
+    recognition.onerror = (event) => trackClick("VoiceError", "Interaction", event.error);
+
+}
+
+
+if (!("speechSynthesis" in window)) voiceToggle.style.display = "none";
+    
 </script nonce="xai-ultra2025">
 
 <!-- Scripts JavaScript -->
