@@ -1,42 +1,283 @@
-# Indique aux robots que toutes les pages peuvent être explorées, sauf restrictions spécifiées
+# robots.txt v3.5 - 2025-05-28
+# Optimizirano za https://clairvoyancemedium.github.io/kapsule-za-huj-anje-za-hitro-izgubo-te-e-brez-ponovnega-pridobivanja-kilogramov.github.io/
+# Cilji: SEO za Slovenijo, hitro indeksiranje, podpora za AI/glasovne asistente/družbena omrežja, večjezičnost, maksimalna zaščita
+
+# --- Splošne direktive za vse legitimne indeksatorje ---
 User-agent: *
-Disallow: /admin/
-Disallow: /tmp/
-Disallow: /private/
+Allow: /
+Allow: /[a-z]{2}/  # Večjezične strani (/sl/, /en/, /it/, etc.)
+Allow: /pogoji/     # Splošni pogoji poslovanja
+Allow: /pisave/     # Pisave za prikaz
+Allow: /slike/      # Slike za indeksiranje
+Allow: /js/         # Interaktivne skripte
+Allow: /css/        # CSS mobile-first
+Allow: /*.webp$     # Slike WebP
+Allow: /*.jpg$      # Slike JPG
+Allow: /*.png$      # Slike PNG
+Allow: /*.gif$      # Slike GIF
+Allow: /*.js$       # JavaScript skripte
+Allow: /*.css$      # CSS datoteke
+Disallow: /csp-poročilo/  # Zaščita CSP
+Disallow: /kontakt/       # Kontaktna stran
+Disallow: /zasebnost/     # Politika zasebnosti
+Disallow: /nakup/         # Transakcijske poti
+Disallow: /iskanje/       # Strani z rezultati iskanja
+Disallow: /api/           # API končne točke
+Disallow: /test/          # Testni imeniki
+Disallow: /priprava/      # Pripravljalna okolja
+Clean-param: utm_source&utm_medium&utm_campaign&lang&session_id  # Dovoljeni parametri
 
-# Bloquer des URL avec paramètres inutiles pour l'indexation
-Disallow: /*?debug=true
-Disallow: /*?preview=true
-
-# Permettre les fichiers nécessaires au bon affichage et fonctionnement
-Allow: /css/
-Allow: /js/
-Allow: /images/
-
-# Référencement des ressources multimédias
-Allow: *.png
-Allow: *.jpg
-Allow: *.webp
-Allow: *.css
-Allow: *.js
-
-# Fournir le chemin du fichier sitemap pour une meilleure indexation
-Sitemap: https://www.clairvoyancemedium.com/sitemap.xml
-
-# Autorisation pour les robots Google et Bing pour maximiser les campagnes publicitaires
+# --- Direktive za Googlebot (Google, Google Assistant) ---
 User-agent: Googlebot
+Crawl-delay: 1
+Allow: /blog/       # Vsebina za SEO
+Allow: /clanki/     # Članki za izseke
+Clean-param: utm_source&utm_medium&utm_campaign&lang
+Disallow: /csp-poročilo/
+Disallow: /kontakt/
+Disallow: /zasebnost/
+Disallow: /nakup/
+
+# --- Direktive za Googlebot-Image ---
+User-agent: Googlebot-Image
+Allow: /slike/
+Allow: /*.webp$
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.gif$
+Disallow: /favicon_optimized.webp  # Prepreči favicon
+
+# --- Direktive za Googlebot-Video ---
+User-agent: Googlebot-Video
+Crawl-delay: 1
 Allow: /
-User-agent: AdsBot-Google
-Allow: /
+Allow: /[a-z]{2}/
+Disallow: /csp-poročilo/
+Disallow: /kontakt/
+Disallow: /zasebnost/
+Disallow: /nakup/
+
+# --- Direktive za Bingbot (Bing, Cortana) ---
 User-agent: Bingbot
+Crawl-delay: 2
+Allow: /blog/
+Allow: /clanki/
+Clean-param: utm_source&utm_medium&utm_campaign&lang
+Disallow: /csp-poročilo/
+Disallow: /kontakt/
+Disallow: /zasebnost/
+Disallow: /nakup/
+
+# --- Direktive za Yandex (Yandex, Alice) ---
+User-agent: Yandex
+Crawl-delay: 3
+Allow: /blog/
+Allow: /clanki/
+Clean-param: utm_source&utm_medium&utm_campaign&lang&session_id
+Disallow: /csp-poročilo/
+Disallow: /kontakt/
+Disallow: /zasebnost/
+Disallow: /nakup/
+
+# --- Direktive za Baiduspider (Kitajska) ---
+User-agent: Baiduspider
+Crawl-delay: 3
+Allow: /zh/        # Prednost kitajščina
+Allow: /blog/
+Allow: /clanki/
+Clean-param: lang
+Disallow: /csp-poročilo/
+Disallow: /kontakt/
+Disallow: /zasebnost/
+Disallow: /nakup/
+Disallow: /api/
+Disallow: /test/
+Disallow: /priprava/
+
+# --- Direktive za Sogou (Kitajska) ---
+User-agent: Sogou
+Crawl-delay: 4
+Allow: /zh/
+Allow: /blog/
+Allow: /clanki/
+Clean-param: lang
+Disallow: /csp-poročilo/
+Disallow: /kontakt/
+Disallow: /zasebnost/
+Disallow: /nakup/
+Disallow: /api/
+Disallow: /test/
+Disallow: /priprava/
+
+# --- Direktive za Applebot (Siri, Apple) ---
+User-agent: Applebot
+Crawl-delay: 2
+Allow: /blog/
+Allow: /clanki/
+Clean-param: utm_source&utm_medium&utm_campaign&lang
+Disallow: /csp-poročilo/
+Disallow: /kontakt/
+Disallow: /zasebnost/
+Disallow: /nakup/
+
+# --- Direktive za Amazonbot (Alexa, Amazon) ---
+User-agent: Amazonbot
+Crawl-delay: 3
+Allow: /blog/
+Allow: /clanki/
+Clean-param: utm_source&utm_medium&utm_campaign&lang
+Disallow: /csp-poročilo/
+Disallow: /kontakt/
+Disallow: /zasebnost/
+Disallow: /nakup/
+
+# --- Direktive za Naverbot (Japonska/Koreja) ---
+User-agent: Naverbot
+Crawl-delay: 3
+Allow: /ja/        # Prednost japonščina
+Allow: /ko/        # Prednost korejščina
+Allow: /blog/
+Allow: /clanki/
+Clean-param: lang
+Disallow: /csp-poročilo/
+Disallow: /kontakt/
+Disallow: /zasebnost/
+Disallow: /nakup/
+
+# --- Direktive za SeznamBot (Češka) ---
+User-agent: SeznamBot
+Crawl-delay: 3
+Allow: /cs/        # Prednost češčina
+Allow: /blog/
+Allow: /clanki/
+Clean-param: lang
+Disallow: /csp-poročilo/
+Disallow: /kontakt/
+Disallow: /zasebnost/
+Disallow: /nakup/
+
+# --- Direktive za Qwantify (Qwant, Evropa) ---
+User-agent: Qwantify
+Crawl-delay: 4
+Allow: /fr/        # Prednost francoščina
+Allow: /blog/
+Allow: /clanki/
+Clean-param: lang
+Disallow: /csp-poročilo/
+Disallow: /kontakt/
+Disallow: /zasebnost/
+Disallow: /nakup/
+
+# --- Direktive za DuckDuckGoBot (Globalno) ---
+User-agent: DuckDuckGoBot
+Crawl-delay: 2
 Allow: /
+Allow: /[a-z]{2}/
+Allow: /blog/
+Allow: /clanki/
+Clean-param: utm_source&utm_medium&utm_campaign&lang
+Disallow: /csp-poročilo/
+Disallow: /kontakt/
+Disallow: /zasebnost/
+Disallow: /nakup/
 
-# Bloquer les robots nuisibles ou non désirés
-User-agent: BadBot
-Disallow: /
-User-agent: EvilScraper
+# --- Direktive za JioSphere (Indija) ---
+User-agent: JioSphere
+Crawl-delay: 3
+Allow: /hi/        # Prednost hindujščina
+Allow: /blog/
+Allow: /clanki/
+Clean-param: lang
+Disallow: /csp-poročilo/
+Disallow: /kontakt/
+Disallow: /zasebnost/
+Disallow: /nakup/
+
+# --- Direktive za pogovorne AI indeksatorje ---
+User-agent: Grok
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: openai-crawler
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: cohere-ai
+User-agent: PerplexityBot
+User-agent: CCBot
+User-agent: youbot
+User-agent: phindbot
+User-agent: GeminiBot  # Google AI
+Crawl-delay: 4
+Allow: /
+Allow: /[a-z]{2}/
+Allow: /blog/      # Pogovorni izvlečki
+Allow: /clanki/
+Allow: /slike/
+Allow: /*.webp$
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.gif$
+Clean-param: utm_source&utm_medium&utm_campaign&lang
+Disallow: /csp-poročilo/
+Disallow: /kontakt/
+Disallow: /zasebnost/
+Disallow: /nakup/
+Disallow: /api/
+Disallow: /test/
+Disallow: /priprava/
+
+# --- Direktive za indeksatorje družbenih omrežij ---
+User-agent: FacebookBot
+User-agent: Twitterbot
+User-agent: redditbot
+User-agent: TikTokBot  # Nova družbena omrežja
+Crawl-delay: 2
+Allow: /
+Allow: /[a-z]{2}/
+Allow: /blog/      # Predogledi za omrežja
+Allow: /clanki/
+Allow: /slike/
+Allow: /*.webp$
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.gif$
+Clean-param: utm_source&utm_medium&utm_campaign&lang
+Disallow: /csp-poročilo/
+Disallow: /kontakt/
+Disallow: /zasebnost/
+Disallow: /nakup/
+
+# --- Blokiraj neželene indeksatorje ---
+User-agent: MJ12bot
+User-agent: AhrefsBot
+User-agent: PetalBot
+User-agent: DotBot
 Disallow: /
 
-# Empêcher l'exploration des fichiers sensibles
-Disallow: /config/
-Disallow: /backup/
+# --- Dovoli SemrushBot za SEO revizije ---
+User-agent: SemrushBot
+Crawl-delay: 5
+Allow: /
+Allow: /[a-z]{2}/
+Allow: /blog/
+Allow: /clanki/
+Allow: /slike/
+Allow: /*.webp$
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.gif$
+Clean-param: utm_source&utm_medium&utm_campaign&lang
+Disallow: /csp-poročilo/
+Disallow: /kontakt/
+Disallow: /zasebnost/
+Disallow: /nakup/
+
+# --- Zaščita pred neprepoznanimi indeksatorji ---
+User-agent: *
+Disallow: /  # Privzeto blokiraj, razen če je eksplicitno dovoljeno
+
+# --- Optimizacija indeksiranja ---
+Crawl-delay: 1
+Request-rate: 1/4  # 1 zahteva/4s za hitro indeksiranje
+
+# --- Indeks zemljevida ---
+Sitemap: https://clairvoyancemedium.github.io/kapsule-za-huj-anje-za-hitro-izgubo-te-e-brez-ponovnega-pridobivanja-kilogramov.github.io/sitemap-index.xml
